@@ -57,7 +57,7 @@ main() {
         exit 0
     fi;
 
-    # Just list all topics
+    # Submit producer app
     if [ -n "$spark" ] && [ "$spark" = "submit" ]; then
         docker exec -it zeppelin /spark/bin/spark-submit \
             --conf spark.jars.ivy=/.cache \

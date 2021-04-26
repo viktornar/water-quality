@@ -119,7 +119,7 @@ services:
       - ./data/conf:/opt/zeppelin/conf
       - ./data/initial:/opt/data/initial
       - ./data/target:/opt/data/target
-      - ./data/work:/opt/data/work
+      - ./target/scala-2.12:/opt/data/work
       - spark:/spark
     depends_on:
       - "broker"
