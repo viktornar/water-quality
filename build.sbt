@@ -9,7 +9,5 @@ idePackagePrefix := Some("com.github.viktornar.wq")
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % "3.1.1",
   "org.apache.spark" %% "spark-sql" % "3.1.1",
-  "org.apache.spark" %% "spark-avro_2.12" % "3.1.1",
-  "org.apache.spark" %% "spark-streaming-kafka-0-10_2.12" % "3.1.1",
-  "org.apache.spark" %% "spark-sql-kafka-0-10_2.12" % "3.1.1"
+  "org.apache.spark" %% "spark-avro" % "3.1.1"
 )
