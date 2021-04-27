@@ -1,20 +1,20 @@
 package com.github.viktornar.wq
 
+import org.apache.spark.sql.avro.functions.to_avro
+import org.apache.spark.sql.functions.{avg, col, column, struct}
 import org.apache.spark.sql._
-import org.apache.spark.sql.avro.functions._
-import org.apache.spark.sql.functions._
 
-import java.io._
+import java.io.{File, PrintWriter}
 
 object WaterQualityProducer {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession
       .builder
-      .appName("WaterQualityApp")
+      .appName("WaterQualityProducer")
       .getOrCreate()
 
     if (args.length < 4) {
-      print("Usage: WaterQualityApp <input_dataset> <output_dataset> <kafka_server> <topic>")
+      print("Usage: WaterQualityProducer <input_dataset> <output_dataset> <kafka_server> <topic>")
       sys.exit(1)
     }
 
@@ -28,18 +28,18 @@ object WaterQualityProducer {
       .options(Map("inferSchema" -> "true", "delimiter" -> ",", "header" -> "true"))
       .csv(inputDataset)
 
-    val avgSamples = averageSamplesByCountry(
-      normalizeDataFrame(waterCSVDataFrame)
-    )
+    writeCSVToAvro(outputDataset, waterCSVDataFrame)
 
-    writeCSVToAvro(outputDataset, avgSamples)
-
-    val waterAvgSamplesDataFrame = spark
+    val waterAvroDataFrame = spark
       .read
       .format("avro")
       .load(outputDataset)
 
-    saveToKafkaTopic(kafkaServer, topic, waterAvgSamplesDataFrame)
+    val avgSamples = averageSamplesByCountry(
+      normalizeDataFrame(waterCSVDataFrame)
+    )
+
+    saveToKafkaTopic(kafkaServer, topic, avgSamples)
   }
 
   private def averageSamplesByCountry(normalizedWaterDataFrame: DataFrame, startYear: Int = 2011): Dataset[Row] = {
@@ -78,7 +78,7 @@ object WaterQualityProducer {
 
     val schemaToWrite = s"${outputDataset.split("\\.")(0)}.avsc"
     val waterJsonSchema = dataFrame.schema.json
-    val writer = new PrintWriter(new File(s"$schemaToWrite"))
+    val writer = new PrintWriter(new File(schemaToWrite))
 
     writer.write(waterJsonSchema)
     writer.close()
