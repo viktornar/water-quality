@@ -1,0 +1,1330 @@
+{
+  "paragraphs": [
+    {
+      "title": "Terminal",
+      "text": "%sh\n\n# rm -rf /opt/data/initial/Waterbase_v2018_1_WISE4_csv\n# mkdir /opt/data/initial/temp/\n# mv /opt/data/initial/census_1000.csv /opt/data/initial/temp/\n\nls -rlt /opt/data/initial\nls -rlt /opt/data/target",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-12 19:16:06.463",
+      "progress": 0,
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 14.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "total 906628\n-rw-rw-r-- 1 zeppelin 1000 928377177 Apr  5  2019 Waterbase_v2018_1_T_WISE4_AggregatedData.csv\ndrwxr-xr-x 2 zeppelin root      4096 Apr 12 18:35 temp\ntotal 4\ndrwxr-xr-x 2 zeppelin root 4096 Apr 12 18:57 Waterbase_v2018_1_T_WISE4_AggregatedData.avro\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618250719953_22242337",
+      "id": "paragraph_1618250719953_22242337",
+      "dateCreated": "2021-04-12 18:05:19.954",
+      "dateStarted": "2021-04-12 18:58:00.896",
+      "dateFinished": "2021-04-12 18:58:00.915",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Source data options",
+      "text": "%producer\n\nval inputPath \u003d z.textbox(\"inputPath\", \"/opt/data/initial\")\nval fileToRead \u003d z.textbox(\"fileToRead\", \"Waterbase_v2018_1_T_WISE4_AggregatedData.csv\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-27 08:12:11.932",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 14.0,
+        "editorHide": false,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {
+          "inputPath": "/opt/data/initial",
+          "fileToRead": "Waterbase_v2018_1_T_WISE4_AggregatedData.csv",
+          "outputPath": "/opt/data/target",
+          "fileToWrite": "Waterbase_v2018_1_T_WISE4_AggregatedData.avro"
+        },
+        "forms": {
+          "inputPath": {
+            "type": "TextBox",
+            "name": "inputPath",
+            "displayName": "inputPath",
+            "defaultValue": "/opt/data/initial",
+            "hidden": false
+          },
+          "fileToRead": {
+            "type": "TextBox",
+            "name": "fileToRead",
+            "displayName": "fileToRead",
+            "defaultValue": "Waterbase_v2018_1_T_WISE4_AggregatedData.csv",
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34minputPath\u001b[0m: \u001b[1m\u001b[32mObject\u001b[0m \u003d /opt/data/initial\n\u001b[1m\u001b[34mfileToRead\u001b[0m: \u001b[1m\u001b[32mObject\u001b[0m \u003d Waterbase_v2018_1_T_WISE4_AggregatedData.csv\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618251542794_348134951",
+      "id": "paragraph_1618251542794_348134951",
+      "dateCreated": "2021-04-12 18:19:02.794",
+      "dateStarted": "2021-04-27 08:12:11.953",
+      "dateFinished": "2021-04-27 08:12:12.386",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Target data options",
+      "text": "%producer\n\nval outputPath \u003d z.textbox(\"outputPath\", \"/opt/data/target\")\nval fileToWrite \u003d z.textbox(\"fileToWrite\", \"Waterbase_v2018_1_T_WISE4_AggregatedData.avro\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-27 08:12:14.634",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 14.0,
+        "editorHide": false,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {
+          "outputPath": "/opt/data/target",
+          "fileToWrite": "Waterbase_v2018_1_T_WISE4_AggregatedData.avro"
+        },
+        "forms": {
+          "outputPath": {
+            "type": "TextBox",
+            "name": "outputPath",
+            "displayName": "outputPath",
+            "defaultValue": "/opt/data/target",
+            "hidden": false
+          },
+          "fileToWrite": {
+            "type": "TextBox",
+            "name": "fileToWrite",
+            "displayName": "fileToWrite",
+            "defaultValue": "Waterbase_v2018_1_T_WISE4_AggregatedData.avro",
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34moutputPath\u001b[0m: \u001b[1m\u001b[32mObject\u001b[0m \u003d /opt/data/target\n\u001b[1m\u001b[34mfileToWrite\u001b[0m: \u001b[1m\u001b[32mObject\u001b[0m \u003d Waterbase_v2018_1_T_WISE4_AggregatedData.avro\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618252379529_1913515594",
+      "id": "paragraph_1618252379529_1913515594",
+      "dateCreated": "2021-04-12 18:32:59.529",
+      "dateStarted": "2021-04-27 08:12:14.649",
+      "dateFinished": "2021-04-27 08:12:14.866",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Read data as csv",
+      "text": "%producer\n\nval waterCSVDataFrame \u003d spark\n    .read\n    .options(Map(\"inferSchema\"-\u003e\"true\",\"delimiter\"-\u003e\",\",\"header\"-\u003e\"true\"))\n    .csv(s\"$inputPath/$fileToRead\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-27 08:12:18.781",
+      "progress": 12,
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 15.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mwaterCSVDataFrame\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [monitoringSiteIdentifier: string, monitoringSiteIdentifierScheme: string ... 29 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4041/jobs/job?id\u003d0"
+            },
+            {
+              "jobUrl": "http://zeppelin:4041/jobs/job?id\u003d1"
+            }
+          ],
+          "interpreterSettingId": "producer"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618250391784_1977414332",
+      "id": "paragraph_1618250391784_1977414332",
+      "dateCreated": "2021-04-12 17:59:51.784",
+      "dateStarted": "2021-04-27 08:12:18.795",
+      "dateFinished": "2021-04-27 08:12:28.720",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Display csv data",
+      "text": "%producer\n\nz.show(waterCSVDataFrame);",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-26 17:42:59.986",
+      "progress": 0,
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 15.0,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "monitoringSiteIdentifier0",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "monitoringSiteIdentifierScheme1",
+                        "visible": true,
+                        "width": 300.0,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "parameterWaterBodyCategory2",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 0.0,
+                          "direction": "asc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "observedPropertyDeterminandCode3",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "procedureAnalysedFraction4",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "procedureAnalysedMedia5",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "resultUom6",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "phenomenonTimeReferenceYear7",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "parameterSamplingPeriod8",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "procedureLOQValue9",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "resultNumberOfSamples10",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "resultQualityNumberOfSamplesBelowLOQ11",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "resultQualityMinimumBelowLOQ12",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "resultMinimumValue13",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "resultQualityMeanBelowLOQ14",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "resultMeanValue15",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "resultQualityMaximumBelowLOQ16",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "resultMaximumValue17",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "resultQualityMedianBelowLOQ18",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "resultMedianValue19",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "resultStandardDeviationValue20",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "procedureAnalyticalMethod21",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "parameterSampleDepth22",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "resultObservationStatus23",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 1.0,
+                          "direction": "desc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "Remarks24",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "metadata_versionId25",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "metadata_beginLifeSpanVersion26",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "metadata_statusCode27",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "metadata_observationStatus28",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "metadata_statements29",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "UID30",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 50.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "updated": false,
+                    "names": {
+                      "monitoringSiteIdentifier": "string",
+                      "monitoringSiteIdentifierScheme": "string",
+                      "parameterWaterBodyCategory": "string",
+                      "observedPropertyDeterminandCode": "string",
+                      "procedureAnalysedFraction": "string",
+                      "procedureAnalysedMedia": "string",
+                      "resultUom": "string",
+                      "phenomenonTimeReferenceYear": "string",
+                      "parameterSamplingPeriod": "string",
+                      "procedureLOQValue": "string",
+                      "resultNumberOfSamples": "string",
+                      "resultQualityNumberOfSamplesBelowLOQ": "string",
+                      "resultQualityMinimumBelowLOQ": "string",
+                      "resultMinimumValue": "string",
+                      "resultQualityMeanBelowLOQ": "string",
+                      "resultMeanValue": "string",
+                      "resultQualityMaximumBelowLOQ": "string",
+                      "resultMaximumValue": "string",
+                      "resultQualityMedianBelowLOQ": "string",
+                      "resultMedianValue": "string",
+                      "resultStandardDeviationValue": "string",
+                      "procedureAnalyticalMethod": "string",
+                      "parameterSampleDepth": "string",
+                      "resultObservationStatus": "string",
+                      "Remarks": "string",
+                      "metadata_versionId": "string",
+                      "metadata_beginLifeSpanVersion": "string",
+                      "metadata_statusCode": "string",
+                      "metadata_observationStatus": "string",
+                      "metadata_statements": "string",
+                      "UID": "string"
+                    }
+                  },
+                  "updated": false,
+                  "initialized": false,
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": true,
+                    "showPagination": true,
+                    "showAggregationFooter": true
+                  }
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "monitoringSiteIdentifier",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "monitoringSiteIdentifierScheme",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "monitoringSiteIdentifier\tmonitoringSiteIdentifierScheme\tparameterWaterBodyCategory\tobservedPropertyDeterminandCode\tprocedureAnalysedFraction\tprocedureAnalysedMedia\tresultUom\tphenomenonTimeReferenceYear\tparameterSamplingPeriod\tprocedureLOQValue\tresultNumberOfSamples\tresultQualityNumberOfSamplesBelowLOQ\tresultQualityMinimumBelowLOQ\tresultMinimumValue\tresultQualityMeanBelowLOQ\tresultMeanValue\tresultQualityMaximumBelowLOQ\tresultMaximumValue\tresultQualityMedianBelowLOQ\tresultMedianValue\tresultStandardDeviationValue\tprocedureAnalyticalMethod\tparameterSampleDepth\tresultObservationStatus\tRemarks\tmetadata_versionId\tmetadata_beginLifeSpanVersion\tmetadata_statusCode\tmetadata_observationStatus\tmetadata_statements\tUID\nUK25034780\teionetMonitoringSiteCode\tRW\tCAS_35065-28-2\ttotal\twater\tug/L\t2012\t2012-01--2012-12\t0.001\t4\t4\t1\t0.001\t1\t0.001\t1\t0.001\tnull\tnull\t0.0\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233859\nUK25034780\teionetMonitoringSiteCode\tRW\tCAS_7012-37-5\ttotal\twater\tug/L\t2012\t2012-01--2012-12\t0.001\t4\t4\t1\t0.001\t1\t0.001\t1\t0.001\tnull\tnull\t0.0\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233860\nUK12813020\teionetMonitoringSiteCode\tRW\tEEA_33-64-7\ttotal\twater\tug/L\t2012\t2012-01--2012-12\t5.0\t4\t4\t1\t5.0\t1\t5.0\t1\t5.0\tnull\tnull\t0.0\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tU\tQC_OBSERVEDPROPERTY_UNREQUESTED: The present observedPropertyDeterminandCode value is not requested in this table\t9233861\nUK12813020\teionetMonitoringSiteCode\tRW\tCAS_37680-73-2\ttotal\twater\tug/L\t2012\t2012-01--2012-12\t0.001\t4\t4\t1\t0.001\t1\t0.001\t1\t0.001\tnull\tnull\t0.0\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233862\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_79-01-6\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.5\t8\t8\t1\t0.5\t1\t0.5\t1\t0.5\tnull\tnull\t0.0\tAPAT CNR IRSA 5150 2003\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233865\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_95-50-1\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.5\t8\t8\t1\t0.5\t1\t0.5\t1\t0.5\tnull\tnull\t0.0\tAPAT CNR IRSA 5150 2003\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233866\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_7440-38-2\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t3.0\t8\t8\t1\t3.0\t1\t3.0\t1\t3.0\tnull\tnull\t0.0\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233867\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_191-24-2\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.01\t8\t8\t1\t0.01\t1\t0.01\t1\t0.01\tnull\tnull\t0.0\tEPA 8270D:1998\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233868\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_118-74-1\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.02\t6\t6\t1\t0.02\t1\t0.02\t1\t0.02\tnull\tnull\t0.0\tISS.CAC.015.REV00 RAPPORTI ISTISAN 07/31 (APAT CNR-IRSA 5060 2003) (GC/MS)\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233869\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_7439-92-1\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t2.0\t8\t8\t1\t2.0\t1\t2.0\t1\t2.0\tnull\tnull\t0.0\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233870\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_7439-97-6\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.02\t8\t8\t1\t0.02\t1\t0.02\t1\t0.02\tnull\tnull\t0.0\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233871\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_91-20-3\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.5\t8\t8\t1\t0.5\t1\t0.5\t1\t0.5\tnull\tnull\t0.0\tAPAT CNR IRSA 5140 2003\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233872\nIT01022040\teuMonitoringSiteCode\tRW\tCAS_2008-58-4\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.05\t5\t5\t1\t0.05\t1\t0.05\t1\t0.05\tnull\tnull\t0.0\tISS.CAC.015.REV00 RAPPORTI ISTISAN 07/31 (APAT CNR-IRSA 5060 2003) (GC/MS)\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233874\nIT01022040\teuMonitoringSiteCode\tRW\tCAS_7440-50-8\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t5.0\t5\t5\t1\t5.0\t1\t5.0\t1\t5.0\tnull\tnull\t0.0\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233875\nIT01022040\teuMonitoringSiteCode\tRW\tCAS_40487-42-1\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.05\t5\t5\t1\t0.05\t1\t0.05\t1\t0.05\tnull\tnull\t0.0\tISS.CAC.015.REV00 RAPPORTI ISTISAN 07/31 (APAT CNR-IRSA 5060 2003) (GC/MS)\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233876\nES040ESPF000400126\teuMonitoringSiteCode\tRW\tCAS_107-06-2\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t5.0\t11\t11\t1\t5.0\t1\t5.0\t1\t5.0\t1\t5.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328016\nIT01023030\teuMonitoringSiteCode\tRW\tCAS_7440-43-9\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.5\t5\t5\t1\t0.5\t1\t0.5\t1\t0.5\tnull\tnull\t0.0\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233878\nIT01023030\teuMonitoringSiteCode\tRW\tCAS_7440-47-3\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t2.0\t6\t5\t1\t2.0\t1\t1.31667\t0\t2.9\tnull\tnull\t0.708088\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233879\nES040ESPF000400126\teuMonitoringSiteCode\tRW\tCAS_108-70-3\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t2.0\t11\t11\t1\t2.0\t1\t2.0\t1\t2.0\t1\t2.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328017\nES040ESPF000400126\teuMonitoringSiteCode\tRW\tCAS_108-88-3\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t5.0\t11\t11\t1\t5.0\t1\t5.0\t1\t5.0\t1\t5.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328018\nES040ESPF000400126\teuMonitoringSiteCode\tRW\tCAS_108-90-7\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t2.0\t11\t11\t1\t2.0\t1\t2.0\t1\t2.0\t1\t2.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328019\nES040ESPF000400126\teuMonitoringSiteCode\tRW\tCAS_118-74-1\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t0.02\t12\t12\t1\t0.02\t1\t0.02\t1\t0.02\t1\t0.02\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328020\nES040ESPF000400126\teuMonitoringSiteCode\tRW\tCAS_120-12-7\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t0.02\t11\t11\t1\t0.02\t1\t0.02\t1\t0.02\t1\t0.02\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328021\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_87-61-6\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.1\t8\t8\t1\t0.1\t1\t0.1\t1\t0.1\tnull\tnull\t0.0\tAPAT CNR IRSA 5150 2003\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233886\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_106-46-7\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.5\t8\t8\t1\t0.5\t1\t0.5\t1\t0.5\tnull\tnull\t0.0\tAPAT CNR IRSA 5150 2003\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233887\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_2008-58-4\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.05\t6\t6\t1\t0.05\t1\t0.05\t1\t0.05\tnull\tnull\t0.0\tISS.CAC.015.REV00 RAPPORTI ISTISAN 07/31 (APAT CNR-IRSA 5060 2003) (GC/MS)\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233888\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_7439-89-6\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t50.0\t8\t7\t1\t50.0\t1\t39.375\t0\t140.0\tnull\tnull\t38.0327\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233889\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_98-82-8\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.5\t8\t8\t1\t0.5\t1\t0.5\t1\t0.5\tnull\tnull\t0.0\tAPAT CNR IRSA 5140 2003\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233890\nIT01022040\teuMonitoringSiteCode\tRW\tCAS_7440-43-9\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.5\t5\t5\t1\t0.5\t1\t0.5\t1\t0.5\tnull\tnull\t0.0\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233891\nIT01022040\teuMonitoringSiteCode\tRW\tCAS_1563-66-2\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.05\t5\t5\t1\t0.05\t1\t0.05\t1\t0.05\tnull\tnull\t0.0\tISS.CAC.015.REV00 RAPPORTI ISTISAN 07/31 (APAT CNR-IRSA 5060 2003) (GC/MS)\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233892\nIT01022040\teuMonitoringSiteCode\tRW\tCAS_1194-65-6\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.05\t5\t5\t1\t0.05\t1\t0.05\t1\t0.05\tnull\tnull\t0.0\tISS.CAC.015.REV00 RAPPORTI ISTISAN 07/31 (APAT CNR-IRSA 5060 2003) (GC/MS)\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233893\nIT01022040\teuMonitoringSiteCode\tRW\tCAS_193-39-5\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.01\t5\t5\t1\t0.01\t1\t0.01\t1\t0.01\tnull\tnull\t0.0\tEPA 8270D:1998\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233894\nIT01022040\teuMonitoringSiteCode\tRW\tCAS_7439-96-5\ttotal\twater\tug/L\t2011\t2011-01--2011-12\tnull\t5\tnull\tnull\t5.3\tnull\t8.04\tnull\t11.0\tnull\tnull\t2.16204\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233895\nIT01022040\teuMonitoringSiteCode\tRW\tCAS_122-34-9\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.02\t5\t5\t1\t0.02\t1\t0.02\t1\t0.02\tnull\tnull\t0.0\tISS.CAC.015.REV00 RAPPORTI ISTISAN 07/31 (APAT CNR-IRSA 5060 2003) (GC/MS)\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233896\nIT01022040\teuMonitoringSiteCode\tRW\tCAS_7440-66-6\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t50.0\t5\t5\t1\t50.0\t1\t50.0\t1\t50.0\tnull\tnull\t0.0\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233897\nES064ESPF167691-4181471\teuMonitoringSiteCode\tRW\tCAS_95-50-1\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t1.0\t3\t3\t1\t1.0\t1\t1.0\t1\t1.0\t1\t1.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11338800\nES064ESPF167691-4181471\teuMonitoringSiteCode\tRW\tEEA_31-02-7\ttotal\twater\tmg/L\t2015\t2015-01-01--2015-12-31\t2.5\t3\t1\t1\t2.5\t0\t2.983\t0\t4.7\t0\t2.983\t1.725\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11338801\nES064ESPF167691-4181471\teuMonitoringSiteCode\tRW\tEEA_3131-01-9\ttotal\twater\t%\t2015\t2015-01-01--2015-12-31\t5.0\t3\t0\t0\t87.0\t0\t93.0\t0\t98.0\t0\t93.0\t5.568\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11338802\nCZPVL_1083\teuMonitoringSiteCode\tRW\tCAS_1007-28-9\ttotal\twater\tug/L\t2011\t2011-01-03--2011-12-08\t0.02\t12\t12\t1\t0.02\t1\t0.02\t1\t0.02\t1\t0.02\tnull\tnull\t0.2\tA\tCZCHMI_1083\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11078767\nCZPVL_1083\teuMonitoringSiteCode\tRW\tCAS_1014-69-3\ttotal\twater\tug/L\t2011\t2011-01-03--2011-12-08\t0.01\t12\t12\t1\t0.01\t1\t0.01\t1\t0.01\t1\t0.01\tnull\tnull\t0.2\tA\tCZCHMI_1083\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11078768\nCZPVL_1083\teuMonitoringSiteCode\tRW\tCAS_120-12-7\ttotal\twater\tug/L\t2011\t2011-01-03--2011-12-08\t0.001\t27\t18\t1\t0.001\t1\t0.001\t0\t0.0022\t1\t0.001\tnull\tnull\t0.2\tA\tCZCHMI_1083\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11078769\nCZPVL_1083\teuMonitoringSiteCode\tRW\tCAS_122-34-9\ttotal\twater\tug/L\t2011\t2011-01-03--2011-12-08\t0.01\t27\t27\t1\t0.01\t1\t0.01\t1\t0.01\t1\t0.01\tnull\tnull\t0.2\tA\tCZCHMI_1083\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11078770\nCZPVL_1083\teuMonitoringSiteCode\tRW\tCAS_124495-18-7\ttotal\twater\tug/L\t2011\t2011-01-03--2011-12-08\t0.01\t27\t27\t1\t0.01\t1\t0.01\t1\t0.01\t1\t0.01\tnull\tnull\t0.2\tA\tCZCHMI_1083\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11078771\nHRRV_40502\teionetMonitoringSiteCode\tRW\tCAS_7440-47-3\tdissolved\twater\tug/L\t2012\t2012-01--2012-12\tnull\t2\tnull\tnull\t0.567\tnull\t0.5915\tnull\t0.616\tnull\tnull\t0.0245\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233907\nHRRV_40502\teionetMonitoringSiteCode\tRW\tCAS_7440-50-8\tdissolved\twater\tug/L\t2012\t2012-01--2012-12\tnull\t6\tnull\tnull\t0.087\tnull\t0.3565\tnull\t0.536\tnull\tnull\t0.14725\tEN ISO 17294-1:2006\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233908\nHRRV_40502\teionetMonitoringSiteCode\tRW\tCAS_7440-66-6\ttotal\twater\tug/L\t2012\t2012-01--2012-12\tnull\t6\tnull\tnull\t0.959\tnull\t1.899\tnull\t3.06\tnull\tnull\t0.724956\tEN ISO 17294-1:2006\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233909\nHRRV_40502\teionetMonitoringSiteCode\tRW\tCAS_7440-66-6\tdissolved\twater\tug/L\t2012\t2012-01--2012-12\tnull\t2\tnull\tnull\t0.525\tnull\t0.751\tnull\t0.977\tnull\tnull\t0.226\tEN ISO 17294-1:2006\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233910\nCZPVL_1083\teuMonitoringSiteCode\tRW\tCAS_129-00-0\ttotal\twater\tug/L\t2011\t2011-01-03--2011-12-08\t0.001\t24\t0\t0\t0.0017\t0\t0.01236\t0\t0.054\t0\t0.0056\tnull\tnull\t0.2\tA\tCZCHMI_1083\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11078772\nCZPVL_1083\teuMonitoringSiteCode\tRW\tCAS_133855-98-8\ttotal\twater\tug/L\t2011\t2011-01-03--2011-12-08\t0.01\t24\t24\t1\t0.01\t1\t0.01\t1\t0.01\t1\t0.01\tnull\tnull\t0.2\tA\tCZCHMI_1083\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11078773\nCZPVL_1083\teuMonitoringSiteCode\tRW\tCAS_139-40-2\ttotal\twater\tug/L\t2011\t2011-01-03--2011-12-08\t0.01\t12\t12\t1\t0.01\t1\t0.01\t1\t0.01\t1\t0.01\tnull\tnull\t0.2\tA\tCZCHMI_1083\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11078774\nCZPVL_1083\teuMonitoringSiteCode\tRW\tCAS_14797-55-8\ttotal\twater\tmg{NO3}/L\t2011\t2011-01-03--2011-12-08\t1.2395\t27\t0\t0\t4.07266\t0\t14.89372\t0\t28.7742\t0\t9.73896\tnull\tnull\t0.2\tA\tCZCHMI_1083\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11078775\nCZPVL_1083\teuMonitoringSiteCode\tRW\tCAS_14797-65-0\ttotal\twater\tmg{NO2}/L\t2011\t2011-01-03--2011-12-08\t0.01642\t12\t0\t0\t0.03613\t0\t0.11003\t0\t0.18065\t0\t0.10675\tnull\tnull\t0.2\tA\tCZCHMI_1083\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11078776\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_121-75-5\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.05\t6\t6\t1\t0.05\t1\t0.05\t1\t0.05\tnull\tnull\t0.0\tISS.CAC.015.REV00 RAPPORTI ISTISAN 07/31 (APAT CNR-IRSA 5060 2003) (GC/MS)\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233924\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_57837-19-1\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.05\t6\t6\t1\t0.05\t1\t0.05\t1\t0.05\tnull\tnull\t0.0\tISS.CAC.015.REV00 RAPPORTI ISTISAN 07/31 (APAT CNR-IRSA 5060 2003) (GC/MS)\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233925\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_21087-64-9\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.05\t6\t6\t1\t0.05\t1\t0.05\t1\t0.05\tnull\tnull\t0.0\tISS.CAC.015.REV00 RAPPORTI ISTISAN 07/31 (APAT CNR-IRSA 5060 2003) (GC/MS)\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233926\nIT01038490\teuMonitoringSiteCode\tRW\tCAS_7440-02-0\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t2.0\t8\t5\t1\t2.0\t0\t3.375\t0\t16.0\tnull\tnull\t4.86692\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233927\nIT01022040\teuMonitoringSiteCode\tRW\tCAS_51235-04-2\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.05\t5\t5\t1\t0.05\t1\t0.05\t1\t0.05\tnull\tnull\t0.0\tISS.CAC.015.REV00 RAPPORTI ISTISAN 07/31 (APAT CNR-IRSA 5060 2003) (GC/MS)\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233928\nIT01022040\teuMonitoringSiteCode\tRW\tCAS_1582-09-8\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.02\t5\t5\t1\t0.02\t1\t0.02\t1\t0.02\tnull\tnull\t0.0\tISS.CAC.015.REV00 RAPPORTI ISTISAN 07/31 (APAT CNR-IRSA 5060 2003) (GC/MS)\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233929\nES0910097\teuMonitoringSiteCode\tRW\tCAS_51218-45-2\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t0.01\t1\t1\t1\t0.01\t1\t0.01\t1\t0.01\t1\t0.01\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11346758\nIT01023030\teuMonitoringSiteCode\tRW\tCAS_7440-50-8\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t5.0\t5\t5\t1\t5.0\t1\t5.0\t1\t5.0\tnull\tnull\t0.0\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233931\nIT01024020\teuMonitoringSiteCode\tRW\tCAS_7439-92-1\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t2.0\t9\t9\t1\t2.0\t1\t2.0\t1\t2.0\tnull\tnull\t0.0\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233932\nIT01024020\teuMonitoringSiteCode\tRW\tCAS_7439-96-5\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t5.0\t9\t9\t1\t5.0\t1\t5.0\t1\t5.0\tnull\tnull\t0.0\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233933\nIT01024020\teuMonitoringSiteCode\tRW\tCAS_7439-97-6\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.02\t9\t9\t1\t0.02\t1\t0.02\t1\t0.02\tnull\tnull\t0.0\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233934\nES0910097\teuMonitoringSiteCode\tRW\tCAS_58-89-9\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t0.01\t1\t1\t1\t0.01\t1\t0.01\t1\t0.01\t1\t0.01\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11346759\nES0910097\teuMonitoringSiteCode\tRW\tCAS_5915-41-3\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t0.004\t1\t1\t1\t0.004\t1\t0.004\t1\t0.004\t1\t0.004\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11346760\nES0910097\teuMonitoringSiteCode\tRW\tCAS_60-51-5\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t0.06\t1\t1\t1\t0.06\t1\t0.06\t1\t0.06\t1\t0.06\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11346761\nHRRV_40502\teionetMonitoringSiteCode\tRW\tCAS_7439-89-6\tdissolved\twater\tug/L\t2012\t2012-01--2012-12\tnull\t2\tnull\tnull\t4.461\tnull\t8.966\tnull\t13.471\tnull\tnull\t4.505\tEN ISO 17294-1:2006\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233938\nHRRV_40502\teionetMonitoringSiteCode\tRW\tCAS_7440-02-0\tdissolved\twater\tug/L\t2012\t2012-01--2012-12\tnull\t2\tnull\tnull\t0.749\tnull\t1.019\tnull\t1.289\tnull\tnull\t0.27\tEN ISO 17294-1:2006\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9233939\nCZPVL_1083\teuMonitoringSiteCode\tRW\tCAS_14798-03-9\ttotal\twater\tmg{NH4}/L\t2011\t2011-01-03--2011-12-08\t0.03866\t33\t0\t0\t0.03866\t0\t0.19762\t0\t0.46397\t0\t0.16754\tnull\tnull\t0.2\tA\tCZCHMI_1083\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11078777\nCZPVL_1083\teuMonitoringSiteCode\tRW\tCAS_15545-48-9\ttotal\twater\tug/L\t2011\t2011-01-03--2011-12-08\t0.01\t24\t10\t1\t0.01\t0\t0.01779\t0\t0.054\t0\t0.013\tnull\tnull\t0.2\tA\tCZCHMI_1083\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11078778\nCZPVL_1083\teuMonitoringSiteCode\tRW\tCAS_15972-60-8\ttotal\twater\tug/L\t2011\t2011-01-03--2011-12-08\t0.005\t27\t27\t1\t0.005\t1\t0.005\t1\t0.005\t1\t0.005\tnull\tnull\t0.2\tA\tCZCHMI_1083\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11078779\nCZPVL_1083\teuMonitoringSiteCode\tRW\tCAS_16887-00-6\ttotal\twater\tmg/L\t2011\t2011-01-03--2011-12-08\t1.0\t12\t0\t0\t19.0\t0\t25.83333\t0\t34.0\t0\t25.5\tnull\tnull\t0.2\tA\tCZCHMI_1083\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11078780\nCZPVL_1083\teuMonitoringSiteCode\tRW\tCAS_18785-72-3\ttotal\twater\tmg/L\t2011\t2011-01-03--2011-12-08\t5.0\t12\t0\t0\t17.0\t0\t35.16667\t0\t47.0\t0\t38.5\tnull\tnull\t0.2\tA\tCZCHMI_1083\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11078781\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_470-90-6\ttotal\twater\tug/L\t2003\t2003-01--2003-12\t0.008\t2\t2\t1\t0.008\t1\t0.008\t1\t0.008\tnull\tnull\t0.0\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269088\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_319-85-7\ttotal\twater\tug/L\t2004\t2004-01--2004-12\t0.0022\t7\t7\t1\t0.0013\t1\t8.42857E-4\t1\t0.0022\tnull\tnull\t1.59079E-4\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269089\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_7440-47-3\ttotal\twater\tug/L\t2004\t2004-01--2004-12\t0.12\t7\t2\t1\t0.12\t0\t0.354286\t0\t1.12\tnull\tnull\t0.348296\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269090\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_7439-92-1\ttotal\twater\tug/L\t2004\t2004-01--2004-12\tnull\t6\t0\tnull\t0.11\tnull\t0.631667\tnull\t1.3\tnull\tnull\t0.392191\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269091\nUKSC104345\teuMonitoringSiteCode\tLW\tCAS_87-86-5\ttotal\twater\tug/L\t2002\t2002-01--2002-12\t0.1\t5\t5\t1\t0.01\t1\t0.024\t1\t0.1\tnull\tnull\t0.0213073\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269092\nUKSC104345\teuMonitoringSiteCode\tLW\tCAS_789-02-6\ttotal\twater\tug/L\t2004\t2004-01--2004-12\t0.0011\t1\t1\t1\t0.0011\t1\t0.0011\t1\t0.0011\tnull\tnull\t0.0\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269093\nUKSC104345\teuMonitoringSiteCode\tLW\tCAS_465-73-6\ttotal\twater\tug/L\t2004\t2004-01--2004-12\t0.005\t6\t6\t1\t4.0E-4\t1\t5.83333E-4\t1\t0.005\tnull\tnull\t8.57159E-4\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269094\nUKSC104345\teuMonitoringSiteCode\tLW\tCAS_7439-96-5\ttotal\twater\tug/L\t2004\t2004-01--2004-12\tnull\t4\t0\tnull\t4.0\tnull\t4.5\tnull\t5.0\tnull\tnull\t0.5\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269095\nUKSC104345\teuMonitoringSiteCode\tLW\tCAS_1912-24-9\ttotal\twater\tug/L\t2005\t2005-01--2005-12\t0.01\t3\t3\t1\t0.01\t1\t0.01\t1\t0.01\tnull\tnull\t0.0\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269096\nUKSC104345\teuMonitoringSiteCode\tLW\tCAS_470-90-6\ttotal\twater\tug/L\t2005\t2005-01--2005-12\t0.008\t3\t3\t1\t0.008\t1\t0.008\t1\t0.008\tnull\tnull\t0.0\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269097\nUKSC104345\teuMonitoringSiteCode\tLW\tCAS_62-73-7\ttotal\twater\tug/L\t2005\t2005-01--2005-12\t0.008\t3\t3\t1\t0.008\t1\t0.008\t1\t0.008\tnull\tnull\t0.0\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269098\nUKSC104345\teuMonitoringSiteCode\tLW\tCAS_72-20-8\ttotal\twater\tug/L\t2005\t2005-01--2005-12\t0.002\t6\t6\t1\t6.5E-4\t1\t4.59167E-4\t1\t0.002\tnull\tnull\t2.43078E-4\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269099\nUKSC104345\teuMonitoringSiteCode\tLW\tCAS_7439-92-1\ttotal\twater\tug/L\t2005\t2005-01--2005-12\tnull\t5\t0\tnull\t0.2\tnull\t0.818\tnull\t1.65\tnull\tnull\t0.652423\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269100\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_465-73-6\ttotal\twater\tug/L\t1995\t1995-01--1995-12\t0.004\t3\t3\t1\t0.00385\t1\t0.001975\t1\t0.004\tnull\tnull\t3.53553E-5\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269101\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_7439-96-5\ttotal\twater\tug/L\t1995\t1995-01--1995-12\t0.03\t9\t8\t1\t0.02\t1\t0.0172222\t0\t0.04\tnull\tnull\t0.00820268\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269102\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_72-20-8\ttotal\twater\tug/L\t1996\t1996-01--1996-12\t0.0032\t3\t3\t1\t0.001\t1\t0.00123333\t1\t0.0032\tnull\tnull\t5.18545E-4\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269103\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_470-90-6\ttotal\twater\tug/L\t1998\t1998-01--1998-12\t0.02\t7\t7\t1\t0.02\t1\t0.02\t1\t0.02\tnull\tnull\t0.0\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269105\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_60-57-1\ttotal\twater\tug/L\t1998\t1998-01--1998-12\t0.002\t8\t8\t1\t0.002\t1\t8.5E-4\t1\t0.002\tnull\tnull\t2.12132E-4\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269106\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_7439-96-5\ttotal\twater\tug/L\t1998\t1998-01--1998-12\t0.03\t9\t8\t1\t0.03\t0\t0.0722222\t0\t0.53\tnull\tnull\t0.161849\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269107\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_7429-90-5\ttotal\twater\tug/L\t1999\t1999-01--1999-12\tnull\t7\t0\tnull\t21.99\tnull\t47.8014\tnull\t72.1\tnull\tnull\t17.0539\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269108\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_62-73-7\ttotal\twater\tug/L\t1999\t1999-01--1999-12\t0.02\t5\t5\t1\t0.02\t1\t0.007\t1\t0.02\tnull\tnull\t0.00244949\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269109\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_1582-09-8\ttotal\twater\tug/L\t2000\t2000-01--2000-12\t0.087\t4\t4\t1\t0.0231\t1\t0.026525\t1\t0.087\tnull\tnull\t0.0145868\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269110\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_60-57-1\ttotal\twater\tug/L\t2001\t2001-01--2001-12\t0.003\t4\t4\t1\t2.0E-4\t1\t4.5E-4\t1\t0.003\tnull\tnull\t6.06218E-4\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269111\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_7429-90-5\ttotal\twater\tug/L\t2002\t2002-01--2002-12\tnull\t1\t0\tnull\t36.23\tnull\t36.23\tnull\t36.23\tnull\tnull\t0.0\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269112\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_1582-09-8\ttotal\twater\tug/L\t2003\t2003-01--2003-12\t9.0E-4\t1\t1\t1\t9.0E-4\t1\t9.0E-4\t1\t9.0E-4\tnull\tnull\t0.0\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269113\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_7440-50-8\ttotal\twater\tug/L\t2004\t2004-01--2004-12\tnull\t7\t0\tnull\t0.84\tnull\t9.06429\tnull\t28.42\tnull\tnull\t10.3851\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269114\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_72-54-8\ttotal\twater\tug/L\t2004\t2004-01--2004-12\t0.0013\t7\t7\t1\t8.0E-4\t1\t4.57143E-4\t1\t0.0013\tnull\tnull\t8.20652E-5\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269115\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_50-29-3\ttotal\twater\tug/L\t2004\t2004-01--2004-12\t0.008\t7\t7\t1\t0.005\t1\t0.00351429\t1\t0.008\tnull\tnull\t5.97444E-4\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269116\nUKSC104349\teuMonitoringSiteCode\tLW\tCAS_60-57-1\ttotal\twater\tug/L\t2004\t2004-01--2004-12\t0.001\t7\t7\t1\t7.0E-4\t1\t3.85714E-4\t1\t0.001\tnull\tnull\t5.15079E-5\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269117\nUKSC104345\teuMonitoringSiteCode\tLW\tCAS_72-55-9\ttotal\twater\tug/L\t2004\t2004-01--2004-12\t8.0E-4\t7\t7\t1\t8.0E-4\t1\t2.71429E-4\t1\t8.0E-4\tnull\tnull\t5.89015E-5\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269118\nUKSC104345\teuMonitoringSiteCode\tLW\tCAS_50-29-3\ttotal\twater\tug/L\t2004\t2004-01--2004-12\t0.0083\t6\t6\t1\t0.0069\t1\t0.00386667\t1\t0.0083\tnull\tnull\t2.13437E-4\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269119\nUKSC104345\teuMonitoringSiteCode\tLW\tCAS_7439-97-6\ttotal\twater\tug/L\t2004\t2004-01--2004-12\t0.009\t7\t7\t1\t0.009\t1\t0.009\t1\t0.009\tnull\tnull\t0.0\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269120\nUKSC104345\teuMonitoringSiteCode\tLW\tCAS_122-34-9\ttotal\twater\tug/L\t2004\t2004-01--2004-12\t0.01\t7\t7\t1\t0.01\t1\t0.01\t1\t0.01\tnull\tnull\t0.0\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9269121\nIT22SGLA0011\teuMonitoringSiteCode\tLW\tCAS_5598-13-0\ttotal\twater\tug/L\t2010\t2010-01--2010-12\t0.05\t6\t6\t1\t0.05\t1\t0.05\t1\t0.05\t1\t0.05\t0.0\tgas chromatography\t50.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9244277\nES080ESPFES080-JU382\teuMonitoringSiteCode\tRW\tEEA_31613-01-1\ttotal\twater\tmg{NH3}/L\t2013\t2013-01-01--2013-12-31\t0.05\t2\t1\t1\t0.05\t0\t0.065\t0\t0.1\t0\t0.065\t0.049\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwkxvrq/WISE-SoE_WaterQuality_2013_AggregatedData.xml\t2017-05-23 08:44:01.000\tvalid\tA\tnull\t11236622\nES080ESPFES080-JU225\teuMonitoringSiteCode\tRW\tCAS_14798-03-9\ttotal\twater\tmg{NH4}/L\t2013\t2013-01-01--2013-12-31\t0.05\t2\t1\t1\t0.05\t0\t0.065\t0\t0.12\t0\t0.065\t0.07\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwkxvrq/WISE-SoE_WaterQuality_2013_AggregatedData.xml\t2017-05-23 08:44:01.000\tvalid\tA\tnull\t11236623\nES080ESPFES080-JU225\teuMonitoringSiteCode\tRW\tEEA_31613-01-1\ttotal\twater\tmg{NH3}/L\t2013\t2013-01-01--2013-12-31\t0.05\t2\t1\t1\t0.05\t0\t0.065\t0\t0.12\t0\t0.065\t0.07\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwkxvrq/WISE-SoE_WaterQuality_2013_AggregatedData.xml\t2017-05-23 08:44:01.000\tvalid\tA\tnull\t11236624\nES0911285\teuMonitoringSiteCode\tRW\tCAS_14798-03-9\ttotal\twater\tmg{NH4}/L\t2013\t2013-01-01--2013-12-31\t0.05\t13\t0\t0\t0.065\t0\t0.071\t0\t0.14\t0\t0.065\t0.021\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwkxvrq/WISE-SoE_WaterQuality_2013_AggregatedData.xml\t2017-05-23 08:44:01.000\tvalid\tA\tnull\t11236625\nES0911285\teuMonitoringSiteCode\tRW\tEEA_31613-01-1\ttotal\twater\tmg{NH3}/L\t2013\t2013-01-01--2013-12-31\t0.05\t13\t0\t0\t0.065\t0\t0.071\t0\t0.14\t0\t0.065\t0.021\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwkxvrq/WISE-SoE_WaterQuality_2013_AggregatedData.xml\t2017-05-23 08:44:01.000\tvalid\tA\tnull\t11236626\nES0911037\teuMonitoringSiteCode\tRW\tEEA_31613-01-1\ttotal\twater\tmg{NH3}/L\t2013\t2013-01-01--2013-12-31\t0.05\t3\t0\t0\t0.065\t0\t0.09\t0\t0.14\t0\t0.065\t0.043\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwkxvrq/WISE-SoE_WaterQuality_2013_AggregatedData.xml\t2017-05-23 08:44:01.000\tvalid\tA\tnull\t11236627\nES0911037\teuMonitoringSiteCode\tRW\tCAS_14798-03-9\ttotal\twater\tmg{NH4}/L\t2013\t2013-01-01--2013-12-31\t0.05\t3\t0\t0\t0.065\t0\t0.09\t0\t0.14\t0\t0.065\t0.043\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwkxvrq/WISE-SoE_WaterQuality_2013_AggregatedData.xml\t2017-05-23 08:44:01.000\tvalid\tA\tnull\t11236628\nES0912204\teuMonitoringSiteCode\tRW\tCAS_14798-03-9\ttotal\twater\tmg{NH4}/L\t2013\t2013-01-01--2013-12-31\t0.05\t3\t0\t0\t0.065\t0\t0.093\t0\t0.15\t0\t0.065\t0.049\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwkxvrq/WISE-SoE_WaterQuality_2013_AggregatedData.xml\t2017-05-23 08:44:01.000\tvalid\tA\tnull\t11236629\nES0912204\teuMonitoringSiteCode\tRW\tEEA_31613-01-1\ttotal\twater\tmg{NH3}/L\t2013\t2013-01-01--2013-12-31\t0.05\t3\t0\t0\t0.065\t0\t0.093\t0\t0.15\t0\t0.065\t0.049\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwkxvrq/WISE-SoE_WaterQuality_2013_AggregatedData.xml\t2017-05-23 08:44:01.000\tvalid\tA\tnull\t11236630\nIT01046190\teuMonitoringSiteCode\tRW\tCAS_95-49-8\ttotal\twater\tug/L\t2010\t2010-01--2010-12\tnull\t9\tnull\tnull\t0.25\tnull\t0.25\tnull\t0.25\tnull\tnull\t0.0\tAPAT CNR IRSA 5150 2003\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9244287\nES030ESPFTA56102001\teuMonitoringSiteCode\tRW\tCAS_14797-65-0\ttotal\twater\tmg{NO2}/L\t2013\t2013-01-01--2013-12-31\t0.05\t4\t0\t0\t0.05\t0\t0.085\t0\t0.16\t0\t0.065\t0.052\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwkxvrq/WISE-SoE_WaterQuality_2013_AggregatedData.xml\t2017-05-23 08:44:01.000\tvalid\tA\tnull\t11236631\nES0910001\teuMonitoringSiteCode\tRW\tEEA_31613-01-1\ttotal\twater\tmg{NH3}/L\t2013\t2013-01-01--2013-12-31\t0.05\t4\t0\t0\t0.065\t0\t0.089\t0\t0.16\t0\t0.065\t0.047\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwkxvrq/WISE-SoE_WaterQuality_2013_AggregatedData.xml\t2017-05-23 08:44:01.000\tvalid\tA\tnull\t11236632\nIT01804010\teuMonitoringSiteCode\tRW\tCAS_87-68-3\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t0.02\t18\t18\t1\t0.02\t1\t0.02\t1\t0.02\tnull\tnull\t0.0\tAPAT CNR IRSA 5150 2003\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9244289\nES070ESPFEOJ1\teuMonitoringSiteCode\tRW\tCAS_15972-60-8\ttotal\twater\tug/L\t2014\t2014-01-01--2014-12-31\t0.02\t13\t13\t1\t0.02\t1\t0.02\t1\t0.02\t1\t0.02\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwe7q/WISE-SoE_WaterQuality_2014_AggregatedData.xml\t2017-05-23 08:44:05.000\tvalid\tA\tnull\t11287486\nES070ESPFEOJ1\teuMonitoringSiteCode\tRW\tCAS_1610-18-0\ttotal\twater\tug/L\t2014\t2014-01-01--2014-12-31\t0.1\t1\t1\t1\t0.1\t1\t0.1\t1\t0.1\t1\t0.1\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwe7q/WISE-SoE_WaterQuality_2014_AggregatedData.xml\t2017-05-23 08:44:05.000\tvalid\tA\tnull\t11287487\nIT01462010\teuMonitoringSiteCode\tRW\tCAS_7439-89-6\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t50.0\t9\t7\t1\t50.0\t0\t78.3333\t0\t265.0\tnull\tnull\t99.7775\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9244292\nES070ESPFEOJ1\teuMonitoringSiteCode\tRW\tCAS_16887-00-6\ttotal\twater\tmg/L\t2014\t2014-01-01--2014-12-31\t10.0\t17\t0\t0\t33.0\t0\t48.912\t0\t72.0\t0\t45.6\t10.359\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwe7q/WISE-SoE_WaterQuality_2014_AggregatedData.xml\t2017-05-23 08:44:05.000\tvalid\tA\tnull\t11287488\nES070ESPFEOJ1\teuMonitoringSiteCode\tRW\tCAS_1912-24-9\ttotal\twater\tug/L\t2014\t2014-01-01--2014-12-31\t0.1\t13\t13\t1\t0.1\t1\t0.1\t1\t0.1\t1\t0.1\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwe7q/WISE-SoE_WaterQuality_2014_AggregatedData.xml\t2017-05-23 08:44:05.000\tvalid\tA\tnull\t11287489\nES070ESPFEOJ1\teuMonitoringSiteCode\tRW\tCAS_1912-26-1\ttotal\twater\tug/L\t2014\t2014-01-01--2014-12-31\t0.1\t1\t1\t1\t0.1\t1\t0.1\t1\t0.1\t1\t0.1\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwe7q/WISE-SoE_WaterQuality_2014_AggregatedData.xml\t2017-05-23 08:44:05.000\tvalid\tA\tnull\t11287490\nES070ESPFEOJ1\teuMonitoringSiteCode\tRW\tCAS_205-99-2\ttotal\twater\tug/L\t2014\t2014-01-01--2014-12-31\t0.02\t13\t13\t1\t0.02\t1\t0.02\t1\t0.02\t1\t0.02\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwe7q/WISE-SoE_WaterQuality_2014_AggregatedData.xml\t2017-05-23 08:44:05.000\tvalid\tA\tnull\t11287491\nES070ESPFEOJ1\teuMonitoringSiteCode\tRW\tCAS_206-44-0\ttotal\twater\tug/L\t2014\t2014-01-01--2014-12-31\t0.02\t13\t13\t1\t0.02\t1\t0.02\t1\t0.02\t1\t0.02\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwe7q/WISE-SoE_WaterQuality_2014_AggregatedData.xml\t2017-05-23 08:44:05.000\tvalid\tA\tnull\t11287492\nES070ESPFEOJ1\teuMonitoringSiteCode\tRW\tCAS_207-08-9\ttotal\twater\tug/L\t2014\t2014-01-01--2014-12-31\t0.02\t13\t13\t1\t0.02\t1\t0.02\t1\t0.02\t1\t0.02\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwe7q/WISE-SoE_WaterQuality_2014_AggregatedData.xml\t2017-05-23 08:44:05.000\tvalid\tA\tnull\t11287493\nES070ESPFEOJ1\teuMonitoringSiteCode\tRW\tCAS_21087-64-9\ttotal\twater\tug/L\t2014\t2014-01-01--2014-12-31\t0.1\t1\t1\t1\t0.1\t1\t0.1\t1\t0.1\t1\t0.1\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwe7q/WISE-SoE_WaterQuality_2014_AggregatedData.xml\t2017-05-23 08:44:05.000\tvalid\tA\tnull\t11287494\nIT01063040\teuMonitoringSiteCode\tRW\tCAS_7440-38-2\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t3.0\t9\t9\t1\t3.0\t1\t3.0\t1\t3.0\tnull\tnull\t0.0\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9244300\nIT01063040\teuMonitoringSiteCode\tRW\tCAS_7439-92-1\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t2.0\t9\t9\t1\t2.0\t1\t2.0\t1\t2.0\tnull\tnull\t0.0\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9244301\nES070ESPFEOJ1\teuMonitoringSiteCode\tRW\tCAS_23103-98-2\ttotal\twater\tug/L\t2014\t2014-01-01--2014-12-31\t0.1\t1\t1\t1\t0.1\t1\t0.1\t1\t0.1\t1\t0.1\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwe7q/WISE-SoE_WaterQuality_2014_AggregatedData.xml\t2017-05-23 08:44:05.000\tvalid\tA\tnull\t11287495\nES020ESPF004300013\teuMonitoringSiteCode\tRW\tEEA_31-02-7\ttotal\twater\tmg/L\t2015\t2015-01-01--2015-12-31\t2.0\t1\t0\t0\t6.4\t0\t6.4\t0\t6.4\t0\t6.4\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11312775\nES020ESPF004300013\teuMonitoringSiteCode\tRW\tEEA_3131-01-9\ttotal\twater\t%\t2015\t2015-01-01--2015-12-31\t0.5\t12\t0\t0\t77.0\t0\t89.4\t0\t109.09\t0\t89.4\t12.093\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11312776\nES020ESPF004300013\teuMonitoringSiteCode\tRW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2015\t2015-01-01--2015-12-31\t0.5\t12\t0\t0\t7.57\t0\t8.928\t0\t10.64\t0\t8.928\t0.966\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11312777\nIT01571050\teuMonitoringSiteCode\tRW\tCAS_7440-02-0\ttotal\twater\tug/L\t2011\t2011-01--2011-12\t2.0\t17\t16\t1\t2.0\t1\t1.08824\t0\t2.5\tnull\tnull\t0.352941\tAPHA Standard Methods, Ed. 21th 2005, 3120\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9244305\nES020ESPF004300013\teuMonitoringSiteCode\tRW\tEEA_3133-01-5\ttotal\twater\tmg{O2}/L\t2015\t2015-01-01--2015-12-31\t4.0\t6\t6\t1\t4.0\t1\t4.0\t1\t4.0\t1\t4.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11312778\nES020ESPF004300013\teuMonitoringSiteCode\tRW\tEEA_3142-01-6\ttotal\twater\tuS/cm\t2015\t2015-01-01--2015-12-31\t10.0\t5\t0\t0\t227.0\t0\t331.4\t0\t497.0\t0\t331.4\t111.977\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11312779\nES020ESPF004300013\teuMonitoringSiteCode\tRW\tEEA_3152-01-0\ttotal\twater\t[pH]\t2015\t2015-01-01--2015-12-31\t2.0\t5\t0\t0\t7.58\t0\t7.996\t0\t8.47\t0\t7.996\t0.35\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11312780\nES020ESPF004300013\teuMonitoringSiteCode\tRW\tEEA_3161-01-1\ttotal\twater\tmg{N}/L\t2015\t2015-01-01--2015-12-31\t4.0\t5\t5\t1\t4.0\t1\t4.0\t1\t4.0\t1\t4.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11312781\nES020ESPF004300013\teuMonitoringSiteCode\tRW\tEEA_31613-01-1\ttotal\twater\tmg{NH3}/L\t2015\t2015-01-01--2015-12-31\t0.052\t10\t0\t0\t0.13\t0\t0.208\t0\t0.384\t0\t0.208\t0.101\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11312782\nES020ESPF004300013\teuMonitoringSiteCode\tRW\tEEA_31615-01-7\ttotal\twater\tmg{N}/L\t2015\t2015-01-01--2015-12-31\t1.0\t5\t0\t0\t1.12\t0\t1.666\t0\t2.15\t0\t1.666\t0.471\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11312783\nES020ESPF004300014\teuMonitoringSiteCode\tRW\tCAS_1024-57-3\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t0.01\t2\t2\t1\t0.01\t1\t0.01\t1\t0.01\t1\t0.01\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11312784\nES020ESPF004300014\teuMonitoringSiteCode\tRW\tCAS_107-06-2\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t8.0\t2\t2\t1\t8.0\t1\t8.0\t1\t8.0\t1\t8.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11312785\nES020ESPF004300014\teuMonitoringSiteCode\tRW\tCAS_108-70-3\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t0.008\t2\t2\t1\t0.008\t1\t0.008\t1\t0.008\t1\t0.008\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11312786\nES020ESPF004300014\teuMonitoringSiteCode\tRW\tCAS_108-88-3\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t8.17\t2\t2\t1\t8.17\t1\t8.17\t1\t8.17\t1\t8.17\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11312787\nES040ESPF000400135\teuMonitoringSiteCode\tRW\tCAS_79-01-6\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t5.0\t12\t12\t1\t5.0\t1\t5.0\t1\t5.0\t1\t5.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328145\nES040ESPF000400135\teuMonitoringSiteCode\tRW\tCAS_834-12-8\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t0.04\t12\t12\t1\t0.04\t1\t0.04\t1\t0.04\t1\t0.04\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328146\nES040ESPF000400135\teuMonitoringSiteCode\tRW\tCAS_87-61-6\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t2.0\t12\t12\t1\t2.0\t1\t2.0\t1\t2.0\t1\t2.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328147\nES040ESPF000400135\teuMonitoringSiteCode\tRW\tCAS_87-68-3\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t5.0\t12\t12\t1\t5.0\t1\t5.0\t1\t5.0\t1\t5.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328148\nES040ESPF000400135\teuMonitoringSiteCode\tRW\tCAS_886-50-0\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t0.04\t12\t12\t1\t0.04\t1\t0.04\t1\t0.04\t1\t0.04\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328149\nES040ESPF000400135\teuMonitoringSiteCode\tRW\tCAS_91-20-3\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t5.0\t12\t12\t1\t5.0\t1\t5.0\t1\t5.0\t1\t5.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328150\nES040ESPF000400135\teuMonitoringSiteCode\tRW\tCAS_94-74-6\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t0.04\t12\t12\t1\t0.04\t1\t0.04\t1\t0.04\t1\t0.04\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328151\nES040ESPF000400135\teuMonitoringSiteCode\tRW\tCAS_95-47-6\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t2.0\t12\t12\t1\t2.0\t1\t2.0\t1\t2.0\t1\t2.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328152\nES040ESPF000400135\teuMonitoringSiteCode\tRW\tCAS_95-50-1\ttotal\twater\tug/L\t2015\t2015-01-01--2015-12-31\t2.5\t12\t12\t1\t2.5\t1\t2.5\t1\t2.5\t1\t2.5\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328153\nES040ESPF000400135\teuMonitoringSiteCode\tRW\tEEA_31-01-6\ttotal\twater\tmg{CaCO3}/L\t2015\t2015-01-01--2015-12-31\t0.1\t12\t0\t0\t68.7\t0\t75.692\t0\t87.1\t0\t75.692\t5.245\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328154\nIT22SGLN0003\teuMonitoringSiteCode\tLW\tCAS_7440-38-2\ttotal\twater\tug/L\t2010\t2010-01--2010-12\t0.5\t6\t0\t0\t1.1\t0\t1.4333\t0\t1.7\t0\t1.4\t0.2338\tRapporti ISTISAN 07/31 Met. ISS.DBB.034.rev00\t10.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9244324\nIT22SGLN0003\teuMonitoringSiteCode\tLW\tCAS_7439-97-6\ttotal\twater\tug/L\t2010\t2010-01--2010-12\t0.1\t6\t6\t1\t0.1\t1\t0.1\t1\t0.1\t1\t0.1\t0.0\tAPAT CNR IRSA 3200 A2 Man. 29/2003\t10.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9244325\nES040ESPF000400135\teuMonitoringSiteCode\tRW\tEEA_31-02-7\ttotal\twater\tmg/L\t2015\t2015-01-01--2015-12-31\t20.0\t12\t12\t1\t20.0\t1\t20.0\t1\t20.0\t1\t20.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328155\nES040ESPF000400135\teuMonitoringSiteCode\tRW\tEEA_3131-01-9\ttotal\twater\t%\t2015\t2015-01-01--2015-12-31\t1.0\t12\t0\t0\t74.3\t0\t93.875\t0\t102.9\t0\t93.875\t10.456\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwfna/WISE-SoE_WaterQuality_2015_AggregatedData.xml\t2017-05-23 08:54:00.000\tvalid\tA\tnull\t11328156\nIT22SGLN0003\teuMonitoringSiteCode\tLW\tCAS_7440-50-8\ttotal\twater\tug/L\t2010\t2010-01--2010-12\t5.0\t6\t6\t1\t5.0\t1\t5.0\t1\t5.0\t1\t5.0\t0.0\tAPAT CNR IRSA 3020 Man. 29/2003\t10.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9244326\nIT22SGLN0003\teuMonitoringSiteCode\tLW\tCAS_7440-43-9\ttotal\twater\tug/L\t2010\t2010-01--2010-12\t0.5\t6\t6\t1\t0.5\t1\t0.5\t1\t0.5\t1\t0.5\t0.0\tAPAT CNR IRSA 3020 Man. 29/2003\t20.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9244327\nIT22SGLN0003\teuMonitoringSiteCode\tLW\tCAS_7440-66-6\ttotal\twater\tug/L\t2010\t2010-01--2010-12\t10.0\t6\t6\t1\t10.0\t1\t10.0\t1\t10.0\t1\t10.0\t0.0\tAPAT CNR IRSA 3020 Man. 29/2003\t20.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9244328\nIT22SGLA0011\teuMonitoringSiteCode\tLW\tCAS_15972-60-8\ttotal\twater\tug/L\t2010\t2010-01--2010-12\t0.05\t6\t6\t1\t0.05\t1\t0.05\t1\t0.05\t1\t0.05\t0.0\tgas chromatography\t50.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9244329\nIT22SGLA0011\teuMonitoringSiteCode\tLW\tCAS_2921-88-2\ttotal\twater\tug/L\t2010\t2010-01--2010-12\t0.05\t6\t6\t1\t0.05\t1\t0.05\t1\t0.05\t1\t0.05\t0.0\tgas chromatography\t50.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9244330\nES091ESBT251760030\teuMonitoringSiteCode\tGW\tCAS_121-75-5\ttotal\twater\tug/L\t2017\t2016-10-01--2017-09-30\t0.025\t1\t1\t1\t0.025\t1\t0.025\t1\t0.025\t1\t0.025\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envxa6osw/WISE-SoE_WaterQuality_2017_GW_AggregatedData.xml\t2018-12-12 13:39:27.000\tvalid\tA\tnull\t11470434\nES091ESBT251760030\teuMonitoringSiteCode\tGW\tCAS_122-14-5\ttotal\twater\tug/L\t2017\t2016-10-01--2017-09-30\t0.005\t1\t1\t1\t0.005\t1\t0.005\t1\t0.005\t1\t0.005\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envxa6osw/WISE-SoE_WaterQuality_2017_GW_AggregatedData.xml\t2018-12-12 13:39:27.000\tvalid\tA\tnull\t11470435\nES091ESBT251760030\teuMonitoringSiteCode\tGW\tCAS_122-34-9\ttotal\twater\tug/L\t2017\t2016-10-01--2017-09-30\t0.025\t1\t1\t1\t0.025\t1\t0.025\t1\t0.025\t1\t0.025\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envxa6osw/WISE-SoE_WaterQuality_2017_GW_AggregatedData.xml\t2018-12-12 13:39:27.000\tvalid\tA\tnull\t11470436\nES091ESBT251760030\teuMonitoringSiteCode\tGW\tCAS_124-48-1\ttotal\twater\tug/L\t2017\t2016-10-01--2017-09-30\t5.0\t1\t1\t1\t5.0\t1\t5.0\t1\t5.0\t1\t5.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envxa6osw/WISE-SoE_WaterQuality_2017_GW_AggregatedData.xml\t2018-12-12 13:39:27.000\tvalid\tA\tnull\t11470437\nES091ESBT251760030\teuMonitoringSiteCode\tGW\tCAS_127-18-4\ttotal\twater\tug/L\t2017\t2016-10-01--2017-09-30\t5.0\t1\t1\t1\t5.0\t1\t5.0\t1\t5.0\t1\t5.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envxa6osw/WISE-SoE_WaterQuality_2017_GW_AggregatedData.xml\t2018-12-12 13:39:27.000\tvalid\tA\tnull\t11470438\nES091ESBT251760030\teuMonitoringSiteCode\tGW\tCAS_135-98-8\ttotal\twater\tug/L\t2017\t2016-10-01--2017-09-30\t5.0\t1\t1\t1\t5.0\t1\t5.0\t1\t5.0\t1\t5.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envxa6osw/WISE-SoE_WaterQuality_2017_GW_AggregatedData.xml\t2018-12-12 13:39:27.000\tvalid\tA\tnull\t11470439\nES091ESBT251760030\teuMonitoringSiteCode\tGW\tCAS_139-40-2\ttotal\twater\tug/L\t2017\t2016-10-01--2017-09-30\t0.005\t1\t1\t1\t0.005\t1\t0.005\t1\t0.005\t1\t0.005\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envxa6osw/WISE-SoE_WaterQuality_2017_GW_AggregatedData.xml\t2018-12-12 13:39:27.000\tvalid\tA\tnull\t11470440\nES091ESBT251760030\teuMonitoringSiteCode\tGW\tCAS_14797-55-8\ttotal\twater\tmg{NO3}/L\t2017\t2016-10-01--2017-09-30\t0.1\t1\t0\t0\t2.79\t0\t2.79\t0\t2.79\t0\t2.79\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envxa6osw/WISE-SoE_WaterQuality_2017_GW_AggregatedData.xml\t2018-12-12 13:39:27.000\tvalid\tA\tnull\t11470441\nES091ESBT251760030\teuMonitoringSiteCode\tGW\tCAS_14798-03-9\ttotal\twater\tmg{NH4}/L\t2017\t2016-10-01--2017-09-30\t0.05\t1\t1\t1\t0.05\t1\t0.05\t1\t0.05\t1\t0.05\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envxa6osw/WISE-SoE_WaterQuality_2017_GW_AggregatedData.xml\t2018-12-12 13:39:27.000\tvalid\tA\tnull\t11470442\nES091ESBT251760030\teuMonitoringSiteCode\tGW\tCAS_1582-09-8\ttotal\twater\tug/L\t2017\t2016-10-01--2017-09-30\t0.005\t1\t1\t1\t0.005\t1\t0.005\t1\t0.005\t1\t0.005\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envxa6osw/WISE-SoE_WaterQuality_2017_GW_AggregatedData.xml\t2018-12-12 13:39:27.000\tvalid\tA\tnull\t11470443\nES091ESBT251760030\teuMonitoringSiteCode\tGW\tCAS_15972-60-8\ttotal\twater\tug/L\t2017\t2016-10-01--2017-09-30\t0.005\t1\t1\t1\t0.005\t1\t0.005\t1\t0.005\t1\t0.005\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envxa6osw/WISE-SoE_WaterQuality_2017_GW_AggregatedData.xml\t2018-12-12 13:39:27.000\tvalid\tA\tnull\t11470444\nCZPOH_1037\teuMonitoringSiteCode\tRW\tCAS_14797-65-0\ttotal\twater\tmg{NO2}/L\t2012\t2012-01-18--2012-12-06\t0.00657\t24\t0\t0\t0.01971\t0\t0.09443\t0\t0.28247\t0\t0.07226\tnull\tnull\t0.2\tA\tCZCHMI_3493\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11085729\nCZPOH_1037\teuMonitoringSiteCode\tRW\tCAS_14798-03-9\ttotal\twater\tmg{NH4}/L\t2012\t2012-01-18--2012-12-06\t0.02578\t24\t2\t1\t0.02578\t0\t0.23198\t0\t1.67544\t0\t0.08377\tnull\tnull\t0.2\tA\tCZCHMI_3493\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11085730\nCZPOH_1037\teuMonitoringSiteCode\tRW\tCAS_152019-73-3\ttotal\twater\tug/L\t2012\t2012-01-18--2012-12-06\t0.02\t24\t24\t1\t0.02\t1\t0.02\t1\t0.02\t1\t0.02\tnull\tnull\t0.2\tA\tCZCHMI_3493\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11085731\nCZPOH_1037\teuMonitoringSiteCode\tRW\tCAS_15307-86-5\ttotal\twater\tug/L\t2012\t2012-01-18--2012-12-06\t0.02\t24\t2\t1\t0.02\t0\t0.12508\t0\t0.29\t0\t0.12\tnull\tnull\t0.2\tA\tCZCHMI_3493\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11085732\nCZPOH_1037\teuMonitoringSiteCode\tRW\tCAS_15545-48-9\ttotal\twater\tug/L\t2012\t2012-01-18--2012-12-06\t0.02\t24\t24\t1\t0.02\t1\t0.02\t1\t0.02\t1\t0.02\tnull\tnull\t0.2\tA\tCZCHMI_3493\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11085733\nCZPOH_1037\teuMonitoringSiteCode\tRW\tCAS_156-59-2\ttotal\twater\tug/L\t2012\t2012-01-18--2012-12-06\t0.1\t24\t24\t1\t0.1\t1\t0.1\t1\t0.1\t1\t0.1\tnull\tnull\t0.2\tA\tCZCHMI_3493\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11085734\nSE655275-153234\teionetMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2002\t2002-01--2002-12\tnull\t8\tnull\tnull\t5.75\tnull\t8.87\tnull\t13.42\tnull\t8.47\tnull\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310842\nFISW_403\teuMonitoringSiteCode\tLW\tEEA_3121-01-5\ttotal\twater\tCel\t2002\t2002-01--2002-12\tnull\t5\tnull\tnull\tnull\tnull\t15.04\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tAll sampling depths included from 0m to (total depth-1)m.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310843\nFISW_716\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2002\t2002-01--2002-12\tnull\t3\tnull\tnull\t5.85\tnull\t7.183\tnull\t8.2\tnull\t7.5\t1.206\tSFS 3040 SFS-EN 25813\tnull\tnull\tAll sampling depths included from 0m to (total depth-1)m.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310844\nCZPOH_1037\teuMonitoringSiteCode\tRW\tCAS_156-60-5\ttotal\twater\tug/L\t2012\t2012-01-18--2012-12-06\t0.1\t24\t24\t1\t0.1\t1\t0.1\t1\t0.1\t1\t0.1\tnull\tnull\t0.2\tA\tCZCHMI_3493\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11085735\nCZPOH_1037\teuMonitoringSiteCode\tRW\tCAS_15687-27-1\ttotal\twater\tug/L\t2012\t2012-01-18--2012-12-06\t0.02\t24\t10\t1\t0.02\t0\t0.05708\t0\t0.23\t0\t0.0295\tnull\tnull\t0.2\tA\tCZCHMI_3493\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11085736\nCZPOH_1037\teuMonitoringSiteCode\tRW\tCAS_1582-09-8\ttotal\twater\tug/L\t2012\t2012-01-18--2012-12-06\t0.001\t24\t22\t1\t0.001\t1\t0.001\t0\t0.0012\t1\t0.001\tnull\tnull\t0.2\tA\tCZCHMI_3493\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11085737\nCZPOH_1037\teuMonitoringSiteCode\tRW\tCAS_15972-60-8\ttotal\twater\tug/L\t2012\t2012-01-18--2012-12-06\t0.01\t24\t20\t1\t0.01\t1\t0.01\t0\t0.014\t1\t0.01\tnull\tnull\t0.2\tA\tCZCHMI_3493\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11085738\nFISW_458\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2002\t2002-01--2002-12\tnull\t3\tnull\tnull\t6.714\tnull\t8.254\tnull\t9.6\tnull\t8.45\t1.452\tSFS 3040 SFS-EN 25813\tnull\tnull\tAll sampling depths included from 0m to (total depth-1)m.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310849\nSE744629-167999\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2003\t2003-01--2003-12\tnull\t6\tnull\tnull\t8.8\tnull\t9.85\tnull\t10.6\tnull\t10.2\t0.758\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310850\nFISW_938\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2003\t2003-01--2003-12\tnull\t3\tnull\tnull\t4.433\tnull\t7.088\tnull\t9.333\tnull\t7.5\t2.475\tSFS 3040 SFS-EN 25813\tnull\tnull\tAll sampling depths included from 0m to (total depth-1)m.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310851\nFISW_940\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2003\t2003-01--2003-12\tnull\t5\tnull\tnull\t8.257\tnull\t9.341\tnull\t10.65\tnull\t9.1\t0.928\tSFS 3040 SFS-EN 25813\tnull\tnull\tAll sampling depths included from 0m to (total depth-1)m.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310852\nUKEWANLAKEGB30536202\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2003\t2003-01--2003-12\tnull\t13\tnull\tnull\t4.02\tnull\t11.2185\tnull\t14.8\tnull\t12.0\tnull\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310853\nFISW_602\teuMonitoringSiteCode\tLW\tCAS_14797-65-0\ttotal\twater\tmg{NO2}/L\t2002\t2002-01--2002-12\tnull\t2\tnull\tnull\t0.0\tnull\t0.0032845\tnull\t0.0032845\tnull\t0.0032845\t0.0\tSFS 3029\tnull\tnull\tAll sampling depths included from 0m to (total depth-1)m.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tU\tQC_LEGACY_207: Record fails in a logical rule test - If resultMinimumValue \u003c resultMaximumValue Then resultStandardDeviationValue \u003e 0\t9310854\nFISW_176\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2002\t2002-01--2002-12\tnull\t2\tnull\tnull\t2.747\tnull\t4.74\tnull\t6.733\tnull\t4.74\t2.818\tSFS 3040 SFS-EN 25813\tnull\tnull\tAll sampling depths included from 0m to (total depth-1)m.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310855\nFISW_1289\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2004\t2004-01--2004-12\tnull\t7\tnull\tnull\t5.375\tnull\t7.159\tnull\t8.625\tnull\t7.2\t1.153\tSFS 3040 SFS-EN 25813\tnull\tnull\tAll sampling depths included from 0m to (total depth-1)m.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310856\nCZPOH_1037\teuMonitoringSiteCode\tRW\tCAS_16484-77-8\ttotal\twater\tug/L\t2012\t2012-01-18--2012-12-06\t0.01\t12\t7\t1\t0.01\t1\t0.01\t0\t0.02\t1\t0.01\tnull\tnull\t0.2\tA\tCZCHMI_3493\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11085739\nCZPOH_1037\teuMonitoringSiteCode\tRW\tCAS_16887-00-6\ttotal\twater\tmg/L\t2012\t2012-01-18--2012-12-06\t1.0\t24\t0\t0\t30.0\t0\t43.0\t0\t86.0\t0\t38.0\tnull\tnull\t0.2\tA\tCZCHMI_3493\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11085740\nCZPOH_1037\teuMonitoringSiteCode\tRW\tCAS_171118-09-5\ttotal\twater\tug/L\t2012\t2012-01-18--2012-12-06\t0.02\t24\t16\t1\t0.02\t1\t0.02\t0\t0.022\t1\t0.02\tnull\tnull\t0.2\tA\tCZCHMI_3493\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11085741\nCZPOH_1037\teuMonitoringSiteCode\tRW\tCAS_171262-17-2\ttotal\twater\tug/L\t2012\t2012-01-18--2012-12-06\t0.03\t24\t24\t1\t0.03\t1\t0.03\t1\t0.03\t1\t0.03\tnull\tnull\t0.2\tA\tCZCHMI_3493\thttp://cdr.eionet.europa.eu/cz/eea/wise_soe/wise4/envwkwjza/CZ_SW_2009_2015_WISE-SoE_WaterQuality._AggregatedData.xml\t2017-02-17 16:46:04.000\tstable\tA\tnull\t11085742\nES070ESPFLHOLEV\teuMonitoringSiteCode\tLW\tCAS_79-34-5\ttotal\twater\tug/L\t2014\t2014-01-01--2014-12-31\t1.0\t1\t1\t1\t1.0\t1\t1.0\t1\t1.0\t1\t1.0\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwe7q/WISE-SoE_WaterQuality_2014_AggregatedData.xml\t2017-05-23 08:44:05.000\tvalid\tA\tnull\t11288135\nES070ESPFLHOLEV\teuMonitoringSiteCode\tLW\tCAS_834-12-8\ttotal\twater\tug/L\t2014\t2014-01-01--2014-12-31\t0.1\t1\t1\t1\t0.1\t1\t0.1\t1\t0.1\t1\t0.1\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwe7q/WISE-SoE_WaterQuality_2014_AggregatedData.xml\t2017-05-23 08:44:05.000\tvalid\tA\tnull\t11288136\nES070ESPFLHOLEV\teuMonitoringSiteCode\tLW\tCAS_85535-84-8\ttotal\twater\tug/L\t2014\t2014-01-01--2014-12-31\t0.6\t1\t1\t1\t0.6\t1\t0.6\t1\t0.6\t1\t0.6\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwe7q/WISE-SoE_WaterQuality_2014_AggregatedData.xml\t2017-05-23 08:44:05.000\tvalid\tA\tnull\t11288137\nES070ESPFLHOLEV\teuMonitoringSiteCode\tLW\tCAS_87-61-6\ttotal\twater\tug/L\t2014\t2014-01-01--2014-12-31\t0.5\t1\t1\t1\t0.5\t1\t0.5\t1\t0.5\t1\t0.5\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwe7q/WISE-SoE_WaterQuality_2014_AggregatedData.xml\t2017-05-23 08:44:05.000\tvalid\tA\tnull\t11288138\nFISW_452\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2002\t2002-01--2002-12\tnull\t3\tnull\tnull\t8.937\tnull\t10.329\tnull\t11.7\tnull\t10.35\t1.381\tSFS 3040 SFS-EN 25813\tnull\tnull\tAll sampling depths included from 0m to (total depth-1)m.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310865\nFISW_609\teuMonitoringSiteCode\tLW\tCAS_14797-65-0\ttotal\twater\tmg{NO2}/L\t2002\t2002-01--2002-12\tnull\t2\tnull\tnull\t0.0\tnull\t0.0\tnull\t0.0032845\tnull\t0.0\t0.0\tSFS 3029\tnull\tnull\tAll sampling depths included from 0m to (total depth-1)m.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tU\tQC_LEGACY_103: The main result value is equal 0 and 0 values are not allowed or possible in this particular case;QC_LEGACY_207: Record fails in a logical rule test - If resultMinimumValue \u003c resultMaximumValue Then resultStandardDeviationValue \u003e 0\t9310866\nES070ESPFLHOLEV\teuMonitoringSiteCode\tLW\tCAS_87-68-3\ttotal\twater\tug/L\t2014\t2014-01-01--2014-12-31\t0.5\t1\t1\t1\t0.5\t1\t0.5\t1\t0.5\t1\t0.5\t0.0\tnull\tnull\tnull\tnull\thttp://cdr.eionet.europa.eu/es/eea/wise_soe/wise4/envwlwe7q/WISE-SoE_WaterQuality_2014_AggregatedData.xml\t2017-05-23 08:44:05.000\tvalid\tA\tnull\t11288139\nSE662709-160136\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2003\t2003-01--2003-12\tnull\t6\tnull\tnull\t8.67\tnull\t11.29\tnull\t12.86\tnull\t11.67\t1.521\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310868\nSE742829-183168\teuMonitoringSiteCode\tLW\tEEA_3111-01-1\ttotal\twater\tm\t2003\t2003-01--2003-12\tnull\t3\tnull\tnull\t3.0\tnull\t3.3\tnull\t3.5\tnull\tnull\t0.29\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310869\nFISW_601\teuMonitoringSiteCode\tLW\tCAS_14797-65-0\ttotal\twater\tmg{NO2}/L\t2002\t2002-01--2002-12\tnull\t2\tnull\tnull\t0.0\tnull\t0.0032845\tnull\t0.006569\tnull\t0.0032845\t0.001\tSFS 3029\tnull\tnull\tAll sampling depths included from 0m to (total depth-1)m.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310870\nUK42002\teionetMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2003\t2003-01--2003-12\tnull\t4\tnull\tnull\t1.92\tnull\t6.975\tnull\t11.1\tnull\t9.34\tnull\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310871\nUK38310\teionetMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2003\t2003-01--2003-12\tnull\t12\tnull\tnull\t9.89\tnull\t11.7408\tnull\t13.6\tnull\t12.0\tnull\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9310872\nIT05365\teuMonitoringSiteCode\tLW\tCAS_83-32-9\ttotal\twater\tug/L\t2010\t2010-01--2010-12\tnull\t1\tnull\tnull\t5.0E-4\tnull\t5.0E-4\tnull\t5.0E-4\tnull\t0.0\tnull\tnull\t39.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tU\tQC_LEGACY_203: Record fails in a logical rule test - resultMedianValue \u003e\u003d resultMinimumValue;QC_LEGACY_211: Record fails in a logical rule test - If resultNumberOfSamples \u003d 1 Then all result values are same;QC_SPATIALID_EIONET2WFD_MAPPING_DISTANCE: Spatial identifier is unreliable due to an error in mapping from EIONET to WFD2010 not taking into account their distance\t9243118\nIT05365\teuMonitoringSiteCode\tLW\tCAS_120-12-7\ttotal\twater\tug/L\t2010\t2010-01--2010-12\tnull\t4\tnull\tnull\t5.0E-4\tnull\t5.0E-4\tnull\t5.0E-4\tnull\t0.0\t0.0\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tU\tQC_LEGACY_203: Record fails in a logical rule test - resultMedianValue \u003e\u003d resultMinimumValue;QC_SPATIALID_EIONET2WFD_MAPPING_DISTANCE: Spatial identifier is unreliable due to an error in mapping from EIONET to WFD2010 not taking into account their distance\t9243119\nIT05365\teuMonitoringSiteCode\tLW\tCAS_120-12-7\ttotal\twater\tug/L\t2010\t2010-01--2010-12\tnull\t2\tnull\tnull\t5.0E-4\tnull\t5.0E-4\tnull\t5.0E-4\tnull\t0.0\t0.0\tnull\t25.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tU\tQC_LEGACY_203: Record fails in a logical rule test - resultMedianValue \u003e\u003d resultMinimumValue;QC_SPATIALID_EIONET2WFD_MAPPING_DISTANCE: Spatial identifier is unreliable due to an error in mapping from EIONET to WFD2010 not taking into account their distance\t9243120\nIT05365\teuMonitoringSiteCode\tLW\tCAS_56-55-3\ttotal\twater\tug/L\t2010\t2010-01--2010-12\tnull\t2\tnull\tnull\t5.0E-4\tnull\t5.0E-4\tnull\t5.0E-4\tnull\t0.0\t0.0\tnull\t25.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tU\tQC_LEGACY_203: Record fails in a logical rule test - resultMedianValue \u003e\u003d resultMinimumValue;QC_SPATIALID_EIONET2WFD_MAPPING_DISTANCE: Spatial identifier is unreliable due to an error in mapping from EIONET to WFD2010 not taking into account their distance\t9243121\nIT05365\teuMonitoringSiteCode\tLW\tCAS_7440-47-3\ttotal\twater\tug/L\t2010\t2010-01--2010-12\tnull\t4\tnull\tnull\t0.5\tnull\t0.5\tnull\t0.5\tnull\t0.0\t0.0\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tU\tQC_LEGACY_203: Record fails in a logical rule test - resultMedianValue \u003e\u003d resultMinimumValue;QC_SPATIALID_EIONET2WFD_MAPPING_DISTANCE: Spatial identifier is unreliable due to an error in mapping from EIONET to WFD2010 not taking into account their distance\t9243122\nIT05365\teuMonitoringSiteCode\tLW\tCAS_7440-47-3\ttotal\twater\tug/L\t2010\t2010-01--2010-12\tnull\t2\tnull\tnull\t0.5\tnull\t0.5\tnull\t0.5\tnull\t0.0\t0.0\tnull\t14.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tU\tQC_LEGACY_203: Record fails in a logical rule test - resultMedianValue \u003e\u003d resultMinimumValue;QC_SPATIALID_EIONET2WFD_MAPPING_DISTANCE: Spatial identifier is unreliable due to an error in mapping from EIONET to WFD2010 not taking into account their distance\t9243123\nIT05365\teuMonitoringSiteCode\tLW\tCAS_7440-47-3\ttotal\twater\tug/L\t2010\t2010-01--2010-12\tnull\t2\tnull\tnull\t0.5\tnull\t0.5\tnull\t0.5\tnull\t0.0\t0.0\tnull\t20.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tU\tQC_LEGACY_203: Record fails in a logical rule test - resultMedianValue \u003e\u003d resultMinimumValue;QC_SPATIALID_EIONET2WFD_MAPPING_DISTANCE: Spatial identifier is unreliable due to an error in mapping from EIONET to WFD2010 not taking into account their distance\t9243124\nIT22SGLN0009\teuMonitoringSiteCode\tLW\tEEA_3164-07-6\ttotal\twater\t{massRatio}\t2010\t2010-01--2010-12\tnull\t45\tnull\tnull\t15.3\tnull\t105.411\tnull\t323.3\tnull\t101.34\t56.5795\tnull\t15.0\tnull\tCalculated\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281895\nRS7001B\teionetMonitoringSiteCode\tLW\tEEA_3164-01-0\ttotal\twater\tug/L\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t1.4\tnull\tnull\tnull\tnull\tnull\tnull\t4.66\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281896\nRS7404B\teionetMonitoringSiteCode\tLW\tEEA_3164-01-0\ttotal\twater\tug/L\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t0.98\tnull\tnull\tnull\tnull\tnull\tnull\t1.5\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281897\nRS7204B\teionetMonitoringSiteCode\tLW\tCAS_14798-03-9\ttotal\twater\tmg{NH4}/L\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t0.073899\tnull\tnull\tnull\tnull\tnull\tnull\t10.16\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281898\nRS6103B\teionetMonitoringSiteCode\tLW\tEEA_3133-04-8\ttotal\twater\tmg{O2}/L\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\t15.8\tnull\t21.8667\tnull\t33.0\tnull\tnull\t9.65471\tnull\t0.5\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281899\nFISW_578\teuMonitoringSiteCode\tLW\tEEA_3121-01-5\ttotal\twater\tCel\t1976\t1976-01--1976-12\tnull\t4\tnull\tnull\tnull\tnull\t6.724\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tAll sampling depths included from 0m to (total depth -1m)\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281902\nIT22SGLN0007\teuMonitoringSiteCode\tLW\tEEA_3164-08-7\ttotal\twater\t{massRatio}\t2010\t2010-01--2010-12\tnull\t18\tnull\tnull\t20.0\tnull\t164.072\tnull\t780.0\tnull\t47.9667\t290.72\tnull\t4.66\tnull\tCalculated\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281903\nIT22SGLN0007\teuMonitoringSiteCode\tLW\tEEA_3152-01-0\ttotal\twater\t[pH]\t2010\t2010-01--2010-12\t0.1\t18\tnull\t0\t7.2\t0\t7.96667\t0\t8.3\t0\t8.11667\t0.404833\tRapporti ISTISAN 07/31 Met. ISS.BCA.023.rev00\t4.66\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281904\nIT22SGLN0007\teuMonitoringSiteCode\tLW\tEEA_3164-07-6\ttotal\twater\t{massRatio}\t2010\t2010-01--2010-12\tnull\t18\tnull\tnull\t24.6\tnull\t41.65\tnull\t60.7\tnull\t39.5\t10.4959\tnull\t4.66\tnull\tCalculated\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281905\nIT22SGLN0008\teuMonitoringSiteCode\tLW\tEEA_3151-01-7\ttotal\twater\tmmol/L\t2010\t2010-01--2010-12\t0.1\t30\tnull\t0\t0.5306\t0\t0.79324\t0\t1.0797\t0\t0.7182\t0.2033\tnull\t15.4\tnull\tCalculated by water hardness\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281906\nIT22SGLN0010\teuMonitoringSiteCode\tLW\tEEA_3151-01-7\ttotal\twater\tmmol/L\t2010\t2010-01--2010-12\t0.1\t120\tnull\t0\t0.8638\t0\t1.06559\t0\t1.1414\t0\t1.06815\t0.0315\tnull\t81.87\tnull\tCalculated by water hardness\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281907\nIT16-LA_OC01\teionetMonitoringSiteCode\tLW\tEEA_3142-01-6\ttotal\twater\tuS/cm\t2010\t2010-01--2010-12\tnull\t9\tnull\tnull\t478.0\tnull\t544.778\tnull\t633.0\tnull\t529.667\t58.4813\tnull\t16.16\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281908\nIT22SGLN0003\teuMonitoringSiteCode\tLW\tEEA_3142-01-6\ttotal\twater\tuS/cm\t2010\t2010-01--2010-12\t1.0\t30\tnull\t0\t249.0\t0\t299.633\t0\t333.0\t0\t302.6\t27.8199\tRapporti ISTISAN 07/31 Met. ISS.BDA.022.rev00\t15.6\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281909\nIT22SGLN0006\teuMonitoringSiteCode\tLW\tCAS_14265-44-2\ttotal\twater\tmg{P}/L\t2010\t2010-01--2010-12\t0.01\t42\tnull\t1\t0.01\t1\t0.00513333\t1\t0.01\t1\t0.01\t3.33333E-4\tAPAT CNR IRSA 4110 A1 Man. 29/2003\t30.83\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281910\nFISW_1063\teuMonitoringSiteCode\tLW\tEEA_3121-01-5\ttotal\twater\tCel\t1977\t1976-12--1977-02\tnull\t1\tnull\tnull\tnull\tnull\t1.688\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tAll sampling depths included from 0m to (total depth -1m)\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281911\nUKGBNIF11257\teuMonitoringSiteCode\tLW\tCAS_14797-55-8\ttotal\twater\tmg{NO3}/L\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\tnull\tnull\t0.730455\tnull\tnull\tnull\tnull\tnull\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281912\nNL93_ENSDVTS\teuMonitoringSiteCode\tLW\tCAS_75-25-2\ttotal\twater\tug/L\t2007\t2007-01--2007-12\t0.005\t5\t4\t1\t0.005\t0\t0.006\t0\t0.02\tnull\tnull\t0.007\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281913\nFISW_544\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t1977\t1977-04--1977-10\tnull\t1\tnull\tnull\t7.766\tnull\t7.766\tnull\t7.766\tnull\t7.766\tnull\tSFS 3040 SFS-EN 25813\tnull\tnull\tAll sampling depths included from 0m to (total depth -1m)\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281914\nFISW_544\teuMonitoringSiteCode\tLW\tEEA_3121-01-5\ttotal\twater\tCel\t1977\t1977-04--1977-10\tnull\t2\tnull\tnull\tnull\tnull\t15.643\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tAll sampling depths included from 0m to (total depth -1m)\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281915\nRS7502C\teionetMonitoringSiteCode\tLW\tCAS_7439-92-1\tdissolved\twater\tug/L\t2006\t2006-01--2006-12\tnull\t1\t0\tnull\t1.0\tnull\t1.0\tnull\t1.0\tnull\tnull\t0.0\tnull\t0.5\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281916\nRS7509A\teionetMonitoringSiteCode\tLW\tEEA_3111-01-1\ttotal\twater\tm\t2011\t2011-01--2011-12\tnull\t1\tnull\tnull\tnull\tnull\t1.7\tnull\tnull\tnull\tnull\tnull\tnull\t0.5\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281917\nRS7803C\teionetMonitoringSiteCode\tLW\tEEA_3161-03-3\ttotal\twater\tmg{N}/L\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t0.59375\tnull\tnull\tnull\tnull\tnull\tnull\t2.16\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281918\nUKGBNIF10930\teuMonitoringSiteCode\tLW\tEEA_31613-01-1\ttotal\twater\tmg{NH3}/L\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\tnull\tnull\t0.00116482262\tnull\tnull\tnull\tnull\tnull\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281919\nUKGBNIF10930\teuMonitoringSiteCode\tLW\tEEA_3161-02-2\ttotal\twater\tmg{N}/L\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\tnull\tnull\t0.214\tnull\tnull\tnull\tnull\tnull\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281920\nUKGBNIF10933\teuMonitoringSiteCode\tLW\tEEA_3161-02-2\ttotal\twater\tmg{N}/L\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\tnull\tnull\t0.192\tnull\tnull\tnull\tnull\tnull\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281921\nUKGBNIF11172\teuMonitoringSiteCode\tLW\tEEA_3161-02-2\ttotal\twater\tmg{N}/L\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\tnull\tnull\t0.125\tnull\tnull\tnull\tnull\tnull\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281922\nFISW_481\teuMonitoringSiteCode\tLW\tEEA_3152-01-0\ttotal\twater\t[pH]\t2011\t2011-04--2011-10\tnull\t1\tnull\tnull\t6.9772\tnull\t6.9772\tnull\t6.9772\tnull\t6.9772\tnull\tSFS 3021\t30.3\tnull\tAll sampling depths included.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281923\nIT02-64031101\teionetMonitoringSiteCode\tLW\tEEA_3131-01-9\ttotal\twater\t%\t2007\t2007-01--2007-12\tnull\t2\tnull\tnull\t92.0\tnull\t97.0\tnull\t102.0\tnull\t97.0\t7.07107\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281924\nFISW_596\teuMonitoringSiteCode\tLW\tEEA_3121-01-5\ttotal\twater\tCel\t1976\t1976-01--1976-12\tnull\t2\tnull\tnull\tnull\tnull\t9.065\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tAll sampling depths included from 0m to (total depth -1m)\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281925\nUKGBNIF11172\teuMonitoringSiteCode\tLW\tCAS_14797-55-8\ttotal\twater\tmg{NO3}/L\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\tnull\tnull\t0.526813\tnull\tnull\tnull\tnull\tnull\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281926\nRS7513B\teionetMonitoringSiteCode\tLW\tEEA_3142-01-6\ttotal\twater\tuS/cm\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t146.35\tnull\tnull\tnull\tnull\tnull\tnull\t5.16\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281928\nRS7802A\teionetMonitoringSiteCode\tLW\tCAS_14797-65-0\ttotal\twater\tmg{NO2}/L\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t0.007369596875\tnull\tnull\tnull\tnull\tnull\tnull\t20.16\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281929\nRS7802C\teionetMonitoringSiteCode\tLW\tCAS_14797-65-0\ttotal\twater\tmg{NO2}/L\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t0.006569\tnull\tnull\tnull\tnull\tnull\tnull\t2.4\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281930\nRS7807B\teionetMonitoringSiteCode\tLW\tCAS_14797-65-0\ttotal\twater\tmg{NO2}/L\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t0.010674625\tnull\tnull\tnull\tnull\tnull\tnull\t4.66\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281931\nRS7807C\teionetMonitoringSiteCode\tLW\tCAS_14797-65-0\ttotal\twater\tmg{NO2}/L\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t0.013231838165\tnull\tnull\tnull\tnull\tnull\tnull\t1.9\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281932\nRS7304A\teionetMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t7.35333\tnull\tnull\tnull\tnull\tnull\tnull\t7.66\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281933\nIT22SGLN0010\teuMonitoringSiteCode\tLW\tEEA_3152-01-0\ttotal\twater\t[pH]\t2010\t2010-01--2010-12\t0.1\t120\tnull\t0\t6.8\t0\t8.05311\t0\t8.5\t0\t8.18125\t0.416225\tRapporti ISTISAN 07/31 Met. ISS.BCA.023.rev00\t81.87\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281934\nIT22SGLN0010\teuMonitoringSiteCode\tLW\tEEA_3163-01-7\ttotal\twater\tmg{Si}/L\t2010\t2010-01--2010-12\t0.1\t120\tnull\t1\t0.1\t0\t1.76365\t0\t3.91\t0\t1.77625\t0.401962\tSpectrophotometric measurement\t81.87\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281935\nUKSC301827\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2011\t2011-01--2011-12\tnull\t9\tnull\tnull\t5.44\tnull\t10.58\tnull\t14.3\tnull\t10.7\t2.6961\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281936\nUKGBNIF10928\teuMonitoringSiteCode\tLW\tEEA_3164-01-0\ttotal\twater\tug/L\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\tnull\tnull\t4.56\tnull\tnull\tnull\tnull\tnull\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281939\nUKGBNIF10929\teuMonitoringSiteCode\tLW\tEEA_3164-01-0\ttotal\twater\tug/L\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\tnull\tnull\t178.67\tnull\tnull\tnull\tnull\tnull\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tU\tQC_LEGACY_401: Potential outlier;QC_OUTLIER_LIMIT: Possible outlier - the highest reported result value is higher than the limit set for the respective observed property (100.0)\t9281940\nNL92_VROUWZD\teuMonitoringSiteCode\tLW\tCAS_7723-14-0\ttotal\twater\tmg{P}/L\t2011\t2011-06--2011-08\tnull\t6\tnull\tnull\tnull\tnull\t0.0368333\tnull\tnull\tnull\tnull\tnull\tnull\t1.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281941\nNL87_AMSDM\teuMonitoringSiteCode\tLW\tEEA_3121-01-5\ttotal\twater\tCel\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\tnull\tnull\t19.49\tnull\t19.49\tnull\tnull\tnull\tnull\t1.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281945\nIT01-201677\teionetMonitoringSiteCode\tLW\tCAS_14797-55-8\ttotal\twater\tmg{NO3}/L\t2008\t2008-01--2008-12\t0.4427\t2\tnull\t0\t3.6434209999999996\t0\t3.6876909999999996\t0\t3.7319609999999996\t0\t3.6876909999999996\t0.0141421\tAPAT CNR-IRSA 4020 Man 29/2003\t50.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281948\nNL92_RAMSDP\teuMonitoringSiteCode\tLW\tCAS_14797-55-8\ttotal\twater\tmg{NO3}/L\t2008\t2008-01--2008-12\tnull\t13\tnull\tnull\t1.9921499999999999\tnull\t9.596363629999999\tnull\t20.718359999999997\tnull\tnull\t1.53988\tnull\t1.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281949\nFISW_586\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t1976\t1976-01--1976-12\tnull\t2\tnull\tnull\t8.144\tnull\t9.157\tnull\t10.17\tnull\t9.157\t1.432\tSFS 3040 SFS-EN 25813\tnull\tnull\tAll sampling depths included from 0m to (total depth -1m)\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281950\nFISW_405\teuMonitoringSiteCode\tLW\tEEA_3121-01-5\ttotal\twater\tCel\t1976\t1976-01--1976-12\tnull\t3\tnull\tnull\tnull\tnull\t7.379\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tAll sampling depths included from 0m to (total depth -1m)\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281951\nUKGBNIF10937\teuMonitoringSiteCode\tLW\tEEA_3164-01-0\ttotal\twater\tug/L\t2011\t2011-01--2011-12\tnull\t11\tnull\tnull\tnull\tnull\t44.45\tnull\tnull\tnull\tnull\tnull\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281952\nFISW_187\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2011\t2010-12--2011-02\tnull\t2\tnull\tnull\t7.825\tnull\t7.8305\tnull\t7.836\tnull\t7.8305\t0.0078\tSFS 3040 SFS-EN 25813\t7.1\tnull\tAll sampling depths included.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281953\nRS7503A\teionetMonitoringSiteCode\tLW\tCAS_7439-97-6\tdissolved\twater\tug/L\t2006\t2006-01--2006-12\t0.05\t1\t1\t1\t0.05\t1\t0.05\t1\t0.05\tnull\tnull\t0.0\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281954\nRS7503B\teionetMonitoringSiteCode\tLW\tCAS_7440-43-9\tdissolved\twater\tug/L\t2006\t2006-01--2006-12\tnull\t1\t0\tnull\t0.1483\tnull\t0.1483\tnull\t0.1483\tnull\tnull\t0.0\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281955\nFI4860\teionetMonitoringSiteCode\tLW\tEEA_3164-08-7\ttotal\twater\t{massRatio}\t2011\t2011-04--2011-10\tnull\t1\tnull\tnull\t2.5\tnull\t2.5\tnull\t2.5\tnull\t2.5\tnull\tnull\t0.5\tnull\tAll sampling depths included.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tU\tQC_LEGACY_212: Record fails in a logical rule test - If resultNumberOfSamples \u003d 1 Then resultStandardDeviationValue \u003d 0\t9281956\nRS7503A\teionetMonitoringSiteCode\tLW\tCAS_7440-38-2\tdissolved\twater\tug/L\t2006\t2006-01--2006-12\tnull\t1\t0\tnull\t1.4875\tnull\t1.4875\tnull\t1.4875\tnull\tnull\t0.0\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281958\nRS7503A\teionetMonitoringSiteCode\tLW\tCAS_7440-47-3\tdissolved\twater\tug/L\t2006\t2006-01--2006-12\tnull\t1\t0\tnull\t0.875\tnull\t0.875\tnull\t0.875\tnull\tnull\t0.0\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281959\nRS7001A\teionetMonitoringSiteCode\tLW\tEEA_3163-01-7\ttotal\twater\tmg{Si}/L\t2008\t2008-01--2008-12\tnull\t3\tnull\tnull\tnull\tnull\t4.33333\tnull\tnull\tnull\tnull\tnull\tAPHA AWWA WEF 4500-SiO2\t12.67\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281960\nRS7502A\teionetMonitoringSiteCode\tLW\tEEA_3131-01-9\ttotal\twater\t%\t2009\t2009-01--2009-12\tnull\t1\tnull\tnull\tnull\tnull\t89.3333\tnull\tnull\tnull\tnull\tnull\tnull\t10.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281961\nUKGBNIF10928\teuMonitoringSiteCode\tLW\tEEA_3161-02-2\ttotal\twater\tmg{N}/L\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\tnull\tnull\t0.409\tnull\tnull\tnull\tnull\tnull\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281962\nUKGBNIF10929\teuMonitoringSiteCode\tLW\tEEA_3161-02-2\ttotal\twater\tmg{N}/L\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\tnull\tnull\t0.116\tnull\tnull\tnull\tnull\tnull\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281963\nFISW_481\teuMonitoringSiteCode\tLW\tEEA_3131-01-9\ttotal\twater\t%\t2011\t2011-04--2011-10\tnull\t1\tnull\tnull\t87.8\tnull\t87.8\tnull\t87.8\tnull\t87.8\tnull\tSFS 3040\t29.1\tnull\tAll sampling depths included.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281964\nFISW_471\teuMonitoringSiteCode\tLW\tCAS_14265-44-2\ttotal\twater\tmg{P}/L\t2011\t2011-04--2011-10\tnull\t1\tnull\tnull\t0.001\tnull\t0.001\tnull\t0.001\tnull\t0.001\tnull\tSFS 3026 + EN ISO 15681\t9.7\tnull\tAll sampling depths included.\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281965\nUKGBNIF10936\teuMonitoringSiteCode\tLW\tEEA_3164-01-0\ttotal\twater\tug/L\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\tnull\tnull\t17.84\tnull\tnull\tnull\tnull\tnull\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281966\nUKGBNIF10931\teuMonitoringSiteCode\tLW\tEEA_3164-01-0\ttotal\twater\tug/L\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\tnull\tnull\t1.88\tnull\tnull\tnull\tnull\tnull\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281967\nIEWE_31_171\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\t9.5\tnull\t10.8333\tnull\t12.3\tnull\t10.9\t1.06714\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281968\nFISW_515\teuMonitoringSiteCode\tLW\tEEA_3121-01-5\ttotal\twater\tCel\t1977\t1977-01--1977-12\tnull\t5\tnull\tnull\tnull\tnull\t8.04\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tAll sampling depths included from 0m to (total depth -1m)\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281969\nPLSM_PL07S0802_3002\teuMonitoringSiteCode\tLW\tCAS_7723-14-0\ttotal\twater\tmg{P}/L\t2011\t2011-04--2011-10\tnull\t4\tnull\tnull\t0.003\tnull\t0.00775\tnull\t0.01\tnull\tnull\tnull\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281970\nRS7808C\teionetMonitoringSiteCode\tLW\tEEA_3163-01-7\ttotal\twater\tmg{Si}/L\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t24.85\tnull\tnull\tnull\tnull\tnull\tnull\t2.16\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281972\nRS6101B\teionetMonitoringSiteCode\tLW\tEEA_3161-03-3\ttotal\twater\tmg{N}/L\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\t0.9\tnull\t3.08667\tnull\t5.16\tnull\tnull\t2.13226\tnull\t0.5\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281973\nRS6102B\teionetMonitoringSiteCode\tLW\tEEA_3161-03-3\ttotal\twater\tmg{N}/L\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\t1.8\tnull\t4.7\tnull\t8.2\tnull\tnull\t3.24191\tnull\t0.5\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281974\nFISW_596\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t1976\t1976-01--1976-12\tnull\t2\tnull\tnull\t6.65\tnull\t7.795\tnull\t8.941\tnull\t7.795\t1.62\tSFS 3040 SFS-EN 25813\tnull\tnull\tAll sampling depths included from 0m to (total depth -1m)\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281978\nFISW_547\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t1977\t1976-12--1977-02\tnull\t1\tnull\tnull\t11.68\tnull\t11.68\tnull\t11.68\tnull\t11.68\tnull\tSFS 3040 SFS-EN 25813\tnull\tnull\tAll sampling depths included from 0m to (total depth -1m)\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281979\nIT22SGLN0010\teuMonitoringSiteCode\tLW\tEEA_31613-01-1\ttotal\twater\tmg{NH3}/L\t2010\t2010-01--2010-12\t0.0243178\t81\tnull\t1\t0.0243178\t1\t0.0243178\t1\t0.0243178\t1\t0.0243178\t0.0\tnull\t81.87\tnull\tCalculated from Total Ammonium by dissociation equilibrium (with pH and Temperature). LQ token from Total Ammonium\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281980\nRS7204A\teionetMonitoringSiteCode\tLW\tCAS_14797-65-0\ttotal\twater\tmg{NO2}/L\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t0.013959125000000001\tnull\tnull\tnull\tnull\tnull\tnull\t12.16\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281982\nRS7807C\teionetMonitoringSiteCode\tLW\tEEA_3131-01-9\ttotal\twater\t%\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t78.5429\tnull\tnull\tnull\tnull\tnull\tnull\t1.9\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281983\nRS7204B\teionetMonitoringSiteCode\tLW\tEEA_3131-01-9\ttotal\twater\t%\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t85.5125\tnull\tnull\tnull\tnull\tnull\tnull\t10.16\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281984\nRS7902B\teionetMonitoringSiteCode\tLW\tEEA_3131-01-9\ttotal\twater\t%\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t53.0357\tnull\tnull\tnull\tnull\tnull\tnull\t7.16\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281985\nRS7807B\teionetMonitoringSiteCode\tLW\tEEA_3152-01-0\ttotal\twater\t[pH]\t2011\t2011-01--2011-12\tnull\t3\tnull\tnull\tnull\tnull\t7.97778\tnull\tnull\tnull\tnull\tnull\tnull\t4.66\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281986\nUKGBNIF10932\teuMonitoringSiteCode\tLW\tEEA_31613-01-1\ttotal\twater\tmg{NH3}/L\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\tnull\tnull\t7.088638699999999E-4\tnull\tnull\tnull\tnull\tnull\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281987\nES210195\teionetMonitoringSiteCode\tRW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2012\t2012-01--2012-12\tnull\t43\tnull\tnull\t6.32\tnull\t9.04465\tnull\t12.61\tnull\t9.905\t2.13964\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tNOTE_LEGACY: The parameterWaterBodyCategory changed from LW to RW based on the the monitoring site data\t9281988\nFISW_546\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t1977\t1976-12--1977-02\tnull\t1\tnull\tnull\t10.769\tnull\t10.769\tnull\t10.769\tnull\t10.769\tnull\tSFS 3040 SFS-EN 25813\tnull\tnull\tAll sampling depths included from 0m to (total depth -1m)\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281989\nFISW_685\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t1977\t1977-04--1977-10\tnull\t1\tnull\tnull\t9.15\tnull\t9.15\tnull\t9.15\tnull\t9.15\tnull\tSFS 3040 SFS-EN 25813\tnull\tnull\tAll sampling depths included from 0m to (total depth -1m)\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281990\nFISW_238\teuMonitoringSiteCode\tLW\tCAS_14797-65-0\ttotal\twater\tmg{NO2}/L\t1977\t1977-04--1977-10\tnull\t3\tnull\tnull\t0.0\tnull\t0.006569\tnull\t0.013138\tnull\t0.0098535\t0.002\tSFS 3029\tnull\tnull\tAll sampling depths included from 0m to (total depth -1m)\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281991\nIEWE_30_666B\teuMonitoringSiteCode\tLW\tEEA_3132-01-2\ttotal\twater\tmg/L\t2011\t2011-01--2011-12\tnull\t61\tnull\tnull\t9.2\tnull\t10.5639\tnull\t12.3\tnull\t10.2\t0.857717\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9281999\nNL92_VROUWZD\teuMonitoringSiteCode\tLW\tEEA_3131-01-9\ttotal\twater\t%\t2011\t2011-06--2011-08\tnull\t6\tnull\tnull\tnull\tnull\t104.833\tnull\tnull\tnull\tnull\tnull\tnull\t1.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tU\tQC_LEGACY_401: Potential outlier\t9282000\nRS7503A\teionetMonitoringSiteCode\tLW\tCAS_7440-02-0\tdissolved\twater\tug/L\t2006\t2006-01--2006-12\tnull\t1\t0\tnull\t4.25\tnull\t4.25\tnull\t4.25\tnull\tnull\t0.0\tnull\tnull\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9282002\nFISW_586\teuMonitoringSiteCode\tLW\tEEA_3121-01-5\ttotal\twater\tCel\t1976\t1976-01--1976-12\tnull\t2\tnull\tnull\tnull\tnull\t7.692\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tAll sampling depths included from 0m to (total depth -1m)\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9282004\nRS7203C\teionetMonitoringSiteCode\tLW\tEEA_3133-04-8\ttotal\twater\tmg{O2}/L\t2009\t2009-01--2009-12\tnull\t1\tnull\tnull\tnull\tnull\t3.4\tnull\tnull\tnull\tnull\tnull\tnull\t0.5\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9282005\nFISW_699\teuMonitoringSiteCode\tLW\tEEA_3121-01-5\ttotal\twater\tCel\t1976\t1976-01--1976-12\tnull\t5\tnull\tnull\tnull\tnull\t7.369\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tAll sampling depths included from 0m to (total depth -1m)\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9282006\nUKGBNIF10931\teuMonitoringSiteCode\tLW\tEEA_3161-02-2\ttotal\twater\tmg{N}/L\t2011\t2011-01--2011-12\tnull\t12\tnull\tnull\tnull\tnull\t0.319\tnull\tnull\tnull\tnull\tnull\tnull\t0.0\tnull\tnull\thttp://discomap.eea.europa.eu/data/wisesoe/deriveddata/T_WISE4_AggregatedData/0.html\t2015-11-30 00:00:00.000\texperimental\tA\tnull\t9282007"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"result-alert alert-warning\" role\u003d\"alert\"\u003e\u003cbutton type\u003d\"button\" class\u003d\"close\" data-dismiss\u003d\"alert\" aria-label\u003d\"Close\"\u003e\u003cspan aria-hidden\u003d\"true\"\u003e\u0026times;\u003c/span\u003e\u003c/button\u003e\u003cstrong\u003eOutput is truncated\u003c/strong\u003e to 102400 bytes. Learn more about \u003cstrong\u003eZEPPELIN_INTERPRETER_OUTPUT_LIMIT\u003c/strong\u003e\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d2"
+            }
+          ],
+          "interpreterSettingId": "producer"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618250794810_215577266",
+      "id": "paragraph_1618250794810_215577266",
+      "dateCreated": "2021-04-12 18:06:34.811",
+      "dateStarted": "2021-04-26 17:43:00.016",
+      "dateFinished": "2021-04-26 17:43:00.797",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Save data to avro format. Also save schema with avsc extension",
+      "text": "%producer\n\nimport java.io._\nimport org.apache.spark.sql.SaveMode\n\nwaterCSVDataFrame\n    .write\n    .format(\"avro\")\n    .mode(SaveMode.Overwrite)\n    .save(s\"$outputPath/$fileToWrite\")\n    \nval schemaToWrite \u003d fileToWrite.toString().split(\"\\\\.\")(0) + \".avsc\"\nval waterJsonSchema \u003d waterCSVDataFrame.schema.json\nval writer \u003d new PrintWriter(new File(s\"$outputPath/$schemaToWrite\"))\nwriter.write(waterJsonSchema)\nwriter.close()\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-27 08:18:00.378",
+      "progress": 87,
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 15.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import java.io._\nimport org.apache.spark.sql.SaveMode\n\u001b[1m\u001b[34mschemaToWrite\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d Waterbase_v2018_1_T_WISE4_AggregatedData.avsc\n\u001b[1m\u001b[34mwaterJsonSchema\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d {\"type\":\"struct\",\"fields\":[{\"name\":\"monitoringSiteIdentifier\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"monitoringSiteIdentifierScheme\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"parameterWaterBodyCategory\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"observedPropertyDeterminandCode\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"procedureAnalysedFraction\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"procedureAnalysedMedia\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"resultUom\",\"type\":\"string\",\"nullable\":true,\"metadata\"...\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4041/jobs/job?id\u003d3"
+            }
+          ],
+          "interpreterSettingId": "producer"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618250918028_577865832",
+      "id": "paragraph_1618250918028_577865832",
+      "dateCreated": "2021-04-12 18:08:38.028",
+      "dateStarted": "2021-04-27 08:18:00.392",
+      "dateFinished": "2021-04-27 08:18:13.284",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Read data from avro and do some aggregation",
+      "text": "%producer\n\nval waterAvroDataFrame \u003d spark\n    .read\n    .format(\"avro\")\n    .load(s\"$outputPath/$fileToWrite\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-27 08:18:16.224",
+      "progress": 0,
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 15.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mwaterAvroDataFrame\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [monitoringSiteIdentifier: string, monitoringSiteIdentifierScheme: string ... 29 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618251516482_79043252",
+      "id": "paragraph_1618251516482_79043252",
+      "dateCreated": "2021-04-12 18:18:36.482",
+      "dateStarted": "2021-04-27 08:18:16.236",
+      "dateFinished": "2021-04-27 08:18:16.512",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Read data from avro as a stream",
+      "text": "%producer\n\nval waterAvroStreamDF \u003d spark\n    .readStream\n    .schema(waterCSVDataFrame.schema)\n    .format(\"avro\")\n    .load(s\"$outputPath/$fileToWrite\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-27 08:18:21.499",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 12.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mwaterAvroStreamDF\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [monitoringSiteIdentifier: string, monitoringSiteIdentifierScheme: string ... 29 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618262671613_1926941983",
+      "id": "paragraph_1618262671613_1926941983",
+      "dateCreated": "2021-04-12 21:24:31.613",
+      "dateStarted": "2021-04-27 08:18:21.520",
+      "dateFinished": "2021-04-27 08:18:21.777",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Water schema",
+      "text": "%producer\n\nwaterAvroDataFrame.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-12 22:50:44.255",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 12.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- monitoringSiteIdentifier: string (nullable \u003d true)\n |-- monitoringSiteIdentifierScheme: string (nullable \u003d true)\n |-- parameterWaterBodyCategory: string (nullable \u003d true)\n |-- observedPropertyDeterminandCode: string (nullable \u003d true)\n |-- procedureAnalysedFraction: string (nullable \u003d true)\n |-- procedureAnalysedMedia: string (nullable \u003d true)\n |-- resultUom: string (nullable \u003d true)\n |-- phenomenonTimeReferenceYear: integer (nullable \u003d true)\n |-- parameterSamplingPeriod: string (nullable \u003d true)\n |-- procedureLOQValue: double (nullable \u003d true)\n |-- resultNumberOfSamples: integer (nullable \u003d true)\n |-- resultQualityNumberOfSamplesBelowLOQ: integer (nullable \u003d true)\n |-- resultQualityMinimumBelowLOQ: integer (nullable \u003d true)\n |-- resultMinimumValue: double (nullable \u003d true)\n |-- resultQualityMeanBelowLOQ: integer (nullable \u003d true)\n |-- resultMeanValue: double (nullable \u003d true)\n |-- resultQualityMaximumBelowLOQ: integer (nullable \u003d true)\n |-- resultMaximumValue: double (nullable \u003d true)\n |-- resultQualityMedianBelowLOQ: integer (nullable \u003d true)\n |-- resultMedianValue: double (nullable \u003d true)\n |-- resultStandardDeviationValue: double (nullable \u003d true)\n |-- procedureAnalyticalMethod: string (nullable \u003d true)\n |-- parameterSampleDepth: double (nullable \u003d true)\n |-- resultObservationStatus: string (nullable \u003d true)\n |-- Remarks: string (nullable \u003d true)\n |-- metadata_versionId: string (nullable \u003d true)\n |-- metadata_beginLifeSpanVersion: string (nullable \u003d true)\n |-- metadata_statusCode: string (nullable \u003d true)\n |-- metadata_observationStatus: string (nullable \u003d true)\n |-- metadata_statements: string (nullable \u003d true)\n |-- UID: string (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618257643186_1959982388",
+      "id": "paragraph_1618257643186_1959982388",
+      "dateCreated": "2021-04-12 20:00:43.186",
+      "dateStarted": "2021-04-12 22:50:44.272",
+      "dateFinished": "2021-04-12 22:50:46.690",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Do some aggregation or whatever and produce result to kafka topic",
+      "text": "%producer\n\nval selectedDf \u003d waterAvroDataFrame\n    .selectExpr(\n        \"substr(monitoringSiteIdentifier, 0, 2) AS country\",\n        \"phenomenonTimeReferenceYear AS year\",\n        \"parameterSamplingPeriod AS period\",\n        \"resultNumberOfSamples AS samples\",\n        \"parameterSampleDepth AS depth\",\n        \"resultUom AS uom\", \n        \"resultMinimumValue AS min\", \n        \"resultMeanValue AS mean\",\n        \"resultMaximumValue AS max\",\n        \"resultStandardDeviationValue AS std\",\n        \"resultObservationStatus as status\", \n        \"Remarks as remarks\")\n\nval filteredDataset \u003d selectedDf.filter($\"year\" \u003e 2011 \u0026\u0026 $\"samples\" \u003e 4 \u0026\u0026 $\"depth\".isNotNull)\n    \n    \nval avgSamplesDepthByCountry \u003d filteredDataset\n    .groupBy(\"country\")\n    .agg(avg(\"depth\").as(\"avg_samples_depth\"))\n    .sort(\"country\")\n        \nval meanByYear \u003d filteredDataset\n    .groupBy(\"country\")\n    .agg(avg(\"mean\").as(\"mean\"))\n    .sort(\"country\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-27 08:18:28.108",
+      "progress": 0,
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 15.0,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "year": "string",
+                      "avg_samples_depth": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mselectedDf\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [country: string, year: int ... 10 more fields]\n\u001b[1m\u001b[34mfilteredDataset\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m \u003d [country: string, year: int ... 10 more fields]\n\u001b[1m\u001b[34mavgSamplesDepthByCountry\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m \u003d [country: string, avg_samples_depth: double]\n\u001b[1m\u001b[34mmeanByYear\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m \u003d [country: string, mean: double]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618255422815_1593222003",
+      "id": "paragraph_1618255422815_1593222003",
+      "dateCreated": "2021-04-12 19:23:42.815",
+      "dateStarted": "2021-04-27 08:18:28.122",
+      "dateFinished": "2021-04-27 08:18:28.791",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%producer\n\nz.show(avgSamplesDepthByYear)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-27 08:12:00.949",
+      "progress": 58,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 12.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "year": "string",
+                      "avg_samples_depth": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "country\tavg_samples_depth\nAT\t0.0\nBA\t0.0\nBE\t0.4879749377460051\nBG\t0.1491967871485944\nCY\t0.0\nCZ\t0.19999999999993007\nDE\t8.531932203389829\nDK\t1.4911835180044777\nEE\t0.04642857142857143\nES\t0.0\nFI\t3.534006273167948\nFR\t0.0\nHR\t0.0\nIE\t0.0\nIS\t0.375\nIT\t3.405965463801941\nLT\t0.1999999999999996\nLU\t0.5\nNL\t1.0\nNO\t0.0\nRO\t0.6042933976261133\nRS\t0.804567799585173\nSE\t0.4973486088379705\nSI\t0.0\nSK\t0.9634153263954576\nUK\t0.0\nXK\t0.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d4"
+            }
+          ],
+          "interpreterSettingId": "producer"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618257338502_2128128008",
+      "id": "paragraph_1618257338502_2128128008",
+      "dateCreated": "2021-04-12 19:55:38.502",
+      "dateStarted": "2021-04-26 17:43:58.667",
+      "dateFinished": "2021-04-26 17:44:04.389",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%producer\n\nz.show(meanByYear)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-26 17:44:05.472",
+      "progress": 3,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 12.0,
+        "editorHide": false,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "year": "string",
+                      "mean": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "country\tmean\nAT\t39.8730333555904\nBA\t33.68272174731091\nBE\t12.22498830470479\nBG\t46.34750701995985\nCY\t26.000843991318366\nCZ\t13.651810546578306\nDE\t585.2995510820672\nDK\t7.598764215750485\nEE\t28.97347786297018\nES\t128.0114623027478\nFI\t70.05227829303954\nFR\t0.7894033517577776\nHR\t48.96607725574367\nIE\t22.955677433446183\nIS\t0.95209535\nIT\t37.61361380655788\nLT\t45.117557764968126\nLU\t54.56535902777778\nNL\t16.27008937862139\nNO\t8.474930777530794\nRO\t16.34561074777135\nRS\t10.494459478039788\nSE\t38.59342337670217\nSI\t1.9442229456140352\nSK\t16.94978795723376\nUK\t41.19267230294782\nXK\t51.28385073333661\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4040/jobs/job?id\u003d5"
+            }
+          ],
+          "interpreterSettingId": "producer"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618258903796_1171141085",
+      "id": "paragraph_1618258903796_1171141085",
+      "dateCreated": "2021-04-12 20:21:43.796",
+      "dateStarted": "2021-04-26 17:44:05.484",
+      "dateFinished": "2021-04-26 17:44:09.454",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Produce some data that will be consumed as a stream by consumer",
+      "text": "%producer\n\nimport org.apache.spark.sql.avro.functions._\n\nval avgSamplesDepthByCountryDF \u003d avgSamplesDepthByCountry.toDF()\n    \navgSamplesDepthByCountryDF\n    .select(to_avro(struct(avgSamplesDepthByCountryDF.columns.map(column _):_*)).alias(\"value\"))\n    .write\n    .format(\"kafka\")\n    .option(\"kafka.bootstrap.servers\", \"172.25.0.12:9092\")\n    .option(\"topic\", \"seb-demo\")\n    .save()",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-27 08:23:51.482",
+      "progress": 85,
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 15.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.avro.functions._\n\u001b[1m\u001b[34mavgSamplesDepthByCountryDF\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [country: string, avg_samples_depth: double]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4041/jobs/job?id\u003d8"
+            },
+            {
+              "jobUrl": "http://zeppelin:4041/jobs/job?id\u003d9"
+            }
+          ],
+          "interpreterSettingId": "producer"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618259306786_973248271",
+      "id": "paragraph_1618259306786_973248271",
+      "dateCreated": "2021-04-12 20:28:26.786",
+      "dateStarted": "2021-04-27 08:23:51.489",
+      "dateFinished": "2021-04-27 08:23:55.692",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Consumer",
+      "text": "%consumer\n\nimport org.apache.spark.sql.avro.functions._\n\nvar avgSamplesDepthByCountrySchema \u003d \"\"\"{\n  \"type\": \"record\",\n  \"name\": \"AvgSamplesByCountry\",\n  \"namespace\": \"com.github.viktornar\",\n  \"fields\": [\n    {\"name\": \"country\",\"type\": [\"string\", \"null\"]},\n    {\"name\": \"avg_samples_depth\",\"type\": [\"double\", \"null\"]}\n  ]\n}\n\"\"\"\n\nval df \u003d spark\n  .readStream\n  .format(\"kafka\")\n  .option(\"kafka.bootstrap.servers\", \"172.25.0.12:9092\")\n  .option(\"subscribe\", \"seb-demo\")\n  .load()\n\nval data \u003d df\n      .select(from_avro(col(\"value\"), avgSamplesDepthByCountrySchema)\n        .alias(\"avgSamplesDepthByCountry\"))\n\n  \nval conOut \u003d data.writeStream\n .outputMode(\"update\")\n .format(\"console\")\n .start()\n\nspark.streams.awaitAnyTermination(30 * 1000)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-27 08:23:47.072",
+      "progress": 0,
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 14.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "-------------------------------------------\nBatch: 0\n-------------------------------------------\n+------------------------+\n|avgSamplesDepthByCountry|\n+------------------------+\n+------------------------+\n\n-------------------------------------------\nBatch: 5\n-------------------------------------------\n+--------------------+\n|    from_avro(value)|\n+--------------------+\n|{DK, 1.4911835180...|\n|{BE, 0.4879749377...|\n|{CZ, 0.1999999999...|\n+--------------------+\n\n-------------------------------------------\nBatch: 1\n-------------------------------------------\n+------------------------+\n|avgSamplesDepthByCountry|\n+------------------------+\n|    {DK, 1.4911835180...|\n|    {BE, 0.4879749377...|\n|    {CZ, 0.1999999999...|\n+------------------------+\n\n-------------------------------------------\nBatch: 3\n-------------------------------------------\n+--------------------+\n|    from_avro(value)|\n+--------------------+\n|{DK, 1.4911835180...|\n|{BE, 0.4879749377...|\n|{CZ, 0.1999999999...|\n+--------------------+\n\n-------------------------------------------\nBatch: 6\n-------------------------------------------\n+--------------------+\n|    from_avro(value)|\n+--------------------+\n|           {BA, 0.0}|\n|           {CY, 0.0}|\n|{DE, 8.5319322033...|\n|           {AT, 0.0}|\n|{BG, 0.1491967871...|\n|{EE, 0.0464285714...|\n|           {ES, 0.0}|\n|           {FR, 0.0}|\n|           {IE, 0.0}|\n|           {LU, 0.5}|\n|           {HR, 0.0}|\n|         {IS, 0.375}|\n|{LT, 0.1999999999...|\n|{FI, 3.5340062731...|\n|           {NL, 1.0}|\n|{IT, 3.4059654638...|\n|{RS, 0.8045677995...|\n|{RO, 0.6042933976...|\n|{SK, 0.9634153263...|\n|{SE, 0.4973486088...|\n+--------------------+\nonly showing top 20 rows\n\n-------------------------------------------\nBatch: 2\n-------------------------------------------\n-------------------------------------------\nBatch: 4\n-------------------------------------------\n+------------------------+\n|avgSamplesDepthByCountry|\n+------------------------+\n|               {BA, 0.0}|\n|               {CY, 0.0}|\n|    {DE, 8.5319322033...|\n|               {AT, 0.0}|\n|    {BG, 0.1491967871...|\n|    {EE, 0.0464285714...|\n|               {ES, 0.0}|\n|               {FR, 0.0}|\n|               {IE, 0.0}|\n|               {LU, 0.5}|\n|               {HR, 0.0}|\n|             {IS, 0.375}|\n|    {LT, 0.1999999999...|\n|    {FI, 3.5340062731...|\n|               {NL, 1.0}|\n|    {IT, 3.4059654638...|\n|    {RS, 0.8045677995...|\n|    {RO, 0.6042933976...|\n|    {SK, 0.9634153263...|\n|    {SE, 0.4973486088...|\n+------------------------+\nonly showing top 20 rows\n\n+--------------------+\n|    from_avro(value)|\n+--------------------+\n|           {BA, 0.0}|\n|           {CY, 0.0}|\n|{DE, 8.5319322033...|\n|           {AT, 0.0}|\n|{BG, 0.1491967871...|\n|{EE, 0.0464285714...|\n|           {ES, 0.0}|\n|           {FR, 0.0}|\n|           {IE, 0.0}|\n|           {LU, 0.5}|\n|           {HR, 0.0}|\n|         {IS, 0.375}|\n|{LT, 0.1999999999...|\n|{FI, 3.5340062731...|\n|           {NL, 1.0}|\n|{IT, 3.4059654638...|\n|{RS, 0.8045677995...|\n|{RO, 0.6042933976...|\n|{SK, 0.9634153263...|\n|{SE, 0.4973486088...|\n+--------------------+\nonly showing top 20 rows\n\nimport org.apache.spark.sql.avro.functions._\n\u001b[1m\u001b[34mavgSamplesDepthByCountrySchema\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d\n\"{\n  \"type\": \"record\",\n  \"name\": \"AvgSamplesByCountry\",\n  \"namespace\": \"com.github.viktornar\",\n  \"fields\": [\n    {\"name\": \"country\",\"type\": [\"string\", \"null\"]},\n    {\"name\": \"avg_samples_depth\",\"type\": [\"double\", \"null\"]}\n  ]\n}\n\"\n\u001b[1m\u001b[34mdf\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [key: binary, value: binary ... 5 more fields]\n\u001b[1m\u001b[34mdata\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [avgSamplesDepthByCountry: struct\u003ccountry: string, avg_samples_depth: double\u003e]\n\u001b[1m\u001b[34mconOut\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.streaming.StreamingQuery\u001b[0m \u003d org.apache.spark.sql.execution.streaming.StreamingQueryWrapper@170bd9b3\n\u001b[1m\u001b[34mres6\u001b[0m: \u001b[1m\u001b[32mBoolean\u001b[0m \u003d false\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618259940255_557078520",
+      "id": "paragraph_1618259940255_557078520",
+      "dateCreated": "2021-04-12 20:39:00.255",
+      "dateStarted": "2021-04-27 08:23:47.086",
+      "dateFinished": "2021-04-27 08:24:17.537",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Play around with streaming avro",
+      "text": "%producer\n\nval output \u003d waterAvroStreamDF\n    .select(to_avro($\"observedPropertyDeterminandCode\") as \u0027value)\n    .writeStream\n    .format(\"kafka\")\n    .outputMode(\"append\")\n    .option(\"checkpointLocation\", \"/tmp\")\n    .option(\"kafka.bootstrap.servers\", \"172.25.0.12:9092\")\n    .option(\"topic\", \"seb-demo\")\n    .start()\n    .awaitTermination(30 * 1000)\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-12 21:37:45.471",
+      "progress": 0,
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 12.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34moutput\u001b[0m: \u001b[1m\u001b[32mBoolean\u001b[0m \u003d false\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618262745731_1806745396",
+      "id": "paragraph_1618262745731_1806745396",
+      "dateCreated": "2021-04-12 21:25:45.731",
+      "dateStarted": "2021-04-12 21:35:10.998",
+      "dateFinished": "2021-04-12 21:36:11.210",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%consumer\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-12 21:34:43.700",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1618263283700_408004550",
+      "id": "paragraph_1618263283700_408004550",
+      "dateCreated": "2021-04-12 21:34:43.700",
+      "status": "READY"
+    }
+  ],
+  "name": "POC",
+  "id": "2G4N1F8RM",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false",
+    "noteFormTitle": "Data"
+  },
+  "info": {}
+}
