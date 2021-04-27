@@ -13,6 +13,8 @@ object WaterQualityProducer {
       .appName("WaterQualityProducer")
       .getOrCreate()
 
+    spark.sparkContext.setLogLevel("ERROR")
+
     if (args.length < 4) {
       print("Usage: WaterQualityProducer <input_dataset> <output_dataset> <kafka_server> <topic>")
       sys.exit(1)

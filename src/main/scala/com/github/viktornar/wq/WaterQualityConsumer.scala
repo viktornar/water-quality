@@ -1,8 +1,8 @@
 package com.github.viktornar.wq
 
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions._
 import org.apache.spark.sql.avro.functions._
+import org.apache.spark.sql.functions._
 
 object WaterQualityConsumer {
   def main(args: Array[String]): Unit = {
@@ -11,15 +11,18 @@ object WaterQualityConsumer {
       .appName("WaterQualityConsumer")
       .getOrCreate()
 
-    if (args.length < 2) {
-      print("Usage: WaterQualityConsumer <kafka_server> <topic>")
+    spark.sparkContext.setLogLevel("ERROR")
+
+    if (args.length < 3) {
+      print("Usage: WaterQualityConsumer <kafka_server> <topic> <timeout>")
       sys.exit(1)
     }
 
     val kafkaServer = args(0)
     val topic = args(1)
+    val timeout = Integer.parseInt(args(2))
 
-    var averageSamplesDepthByCountrySchema =
+    val avgSamplesDepthByCountrySchema =
       """{
   "type": "record",
   "name": "AvgSamplesByCountry",
@@ -36,17 +39,18 @@ object WaterQualityConsumer {
       .format("kafka")
       .option("kafka.bootstrap.servers", kafkaServer)
       .option("subscribe", topic)
+      .option("startingOffsets", "latest")
       .load()
 
     val data = df
-      .select(from_avro(col("value"), averageSamplesDepthByCountrySchema))
-      .alias("avgSamplesDepthByCountry")
+      .select(from_avro(col("value"), avgSamplesDepthByCountrySchema)
+        .alias("avgSamplesDepthByCountry"))
 
-    data.writeStream
+    val query = data.writeStream
       .outputMode("update")
       .format("console")
       .start()
 
-    spark.streams.awaitAnyTermination(30 * 1000)
+    query.awaitTermination(timeout * 1000)
   }
 }

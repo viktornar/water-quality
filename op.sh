@@ -6,6 +6,7 @@ main() {
     # Download images and setup network
     if [ -n "$compose" ] && [ "$compose" = "up" ]; then
         docker-compose -f docker-compose.yml up -d
+        echo "Trying to set up kafka topic."
         sleep 10s
         docker exec -it broker /bin/kafka-topics --create --topic seb-demo --bootstrap-server 172.25.0.12:9092
         exit 0
@@ -70,6 +71,19 @@ main() {
             /opt/data/target/Waterbase_v2018_1_T_WISE4_AggregatedData.avro \
             172.25.0.12:9092 \
             seb-demo
+        exit 0
+    fi;
+
+    # Submit consumer app
+    if [ -n "$spark" ] && [ "$spark" = "submit-consumer" ]; then
+        docker exec -it zeppelin /spark/bin/spark-submit \
+            --conf spark.jars.ivy=/.cache \
+            --packages "org.apache.spark:spark-avro_2.12:3.1.1,org.apache.spark:spark-streaming-kafka-0-10_2.12:3.1.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.1" \
+            --class com.github.viktornar.wq.WaterQualityConsumer \
+            /opt/data/work/water-quality_2.12-0.1.jar \
+            172.25.0.12:9092 \
+            seb-demo \
+            180
         exit 0
     fi;
 }
