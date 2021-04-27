@@ -45,6 +45,10 @@ object WaterQualityConsumer {
     val data = df
       .select(from_avro(col("value"), avgSamplesDepthByCountrySchema)
         .alias("avgSamplesDepthByCountry"))
+      .select(
+        col("avgSamplesDepthByCountry.country"),
+        col("avgSamplesDepthByCountry.avg_samples_depth")
+      )
 
     val query = data.writeStream
       .outputMode("update")

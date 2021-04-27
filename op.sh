@@ -83,7 +83,7 @@ main() {
             /opt/data/work/water-quality_2.12-0.1.jar \
             172.25.0.12:9092 \
             seb-demo \
-            180
+            3600
         exit 0
     fi;
 }
