@@ -86,6 +86,12 @@ This application can be published by using:
 ./op.sh spark=submit-producer
 ```
 
+In **data/work** I have added already compiled application so no need to rwcompile it, but in case if you need to create a new jar:
+
+```shell
+sbt clean package
+```
+
 **WaterQualityConsumer.scala** will subscribe to kafka topic **seb-demo** and will display batch as ascii table.
 
 ```shell
