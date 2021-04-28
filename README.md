@@ -86,7 +86,7 @@ This application can be published by using:
 ./op.sh spark=submit-producer
 ```
 
-In **data/work** I have added already compiled application so no need to rwcompile it, but in case if you need to create a new jar:
+In **data/work** I have added already compiled application so no need to recompile it, but in case if you need to create a new jar:
 
 ```shell
 sbt clean package
