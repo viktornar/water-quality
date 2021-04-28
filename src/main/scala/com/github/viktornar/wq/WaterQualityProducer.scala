@@ -50,11 +50,10 @@ object WaterQualityProducer {
 
   def averageSamplesByCountry(normalizedWaterDataFrame: DataFrame, startYear: Int = 2011): Dataset[Row] = {
     val avgSamplesByCountry = normalizedWaterDataFrame
-      .filter(col("year") > startYear && col("samples").isNotNull)
+      .filter(col("year") > startYear && col("depth").isNotNull)
       .groupBy("country")
       .agg(avg("depth").as("avg_samples_depth"))
-      .sort("country")
-      .filter(col("avg_samples_depth").isNotNull)
+      .sort(col("country"))
     avgSamplesByCountry
   }
 
