@@ -1,50 +1,6 @@
 {
   "paragraphs": [
     {
-      "title": "Terminal",
-      "text": "%sh\n\n# rm -rf /opt/data/initial/Waterbase_v2018_1_WISE4_csv\n# mkdir /opt/data/initial/temp/\n# mv /opt/data/initial/census_1000.csv /opt/data/initial/temp/\n\nls -rlt /opt/data/initial\nls -rlt /opt/data/target",
-      "user": "anonymous",
-      "dateUpdated": "2021-04-12 19:16:06.463",
-      "progress": 0,
-      "config": {
-        "lineNumbers": true,
-        "editorSetting": {
-          "language": "sh",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/sh",
-        "fontSize": 14.0,
-        "title": true,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "total 906628\n-rw-rw-r-- 1 zeppelin 1000 928377177 Apr  5  2019 Waterbase_v2018_1_T_WISE4_AggregatedData.csv\ndrwxr-xr-x 2 zeppelin root      4096 Apr 12 18:35 temp\ntotal 4\ndrwxr-xr-x 2 zeppelin root 4096 Apr 12 18:57 Waterbase_v2018_1_T_WISE4_AggregatedData.avro\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1618250719953_22242337",
-      "id": "paragraph_1618250719953_22242337",
-      "dateCreated": "2021-04-12 18:05:19.954",
-      "dateStarted": "2021-04-12 18:58:00.896",
-      "dateFinished": "2021-04-12 18:58:00.915",
-      "status": "FINISHED"
-    },
-    {
       "title": "Source data options",
       "text": "%producer\n\nval inputPath \u003d z.textbox(\"inputPath\", \"/opt/data/initial\")\nval fileToRead \u003d z.textbox(\"fileToRead\", \"Waterbase_v2018_1_T_WISE4_AggregatedData.csv\")\n",
       "user": "anonymous",
@@ -1208,9 +1164,9 @@
     },
     {
       "title": "Consumer",
-      "text": "%consumer\n\nimport org.apache.spark.sql.avro.functions._\n\nvar avgSamplesDepthByCountrySchema \u003d \"\"\"{\n  \"type\": \"record\",\n  \"name\": \"AvgSamplesByCountry\",\n  \"namespace\": \"com.github.viktornar\",\n  \"fields\": [\n    {\"name\": \"country\",\"type\": [\"string\", \"null\"]},\n    {\"name\": \"avg_samples_depth\",\"type\": [\"double\", \"null\"]}\n  ]\n}\n\"\"\"\n\nval df \u003d spark\n  .readStream\n  .format(\"kafka\")\n  .option(\"kafka.bootstrap.servers\", \"172.25.0.12:9092\")\n  .option(\"subscribe\", \"seb-demo\")\n  .load()\n\nval data \u003d df\n      .select(from_avro(col(\"value\"), avgSamplesDepthByCountrySchema)\n        .alias(\"avgSamplesDepthByCountry\"))\n\n  \nval conOut \u003d data.writeStream\n .outputMode(\"update\")\n .format(\"console\")\n .start()\n\nspark.streams.awaitAnyTermination(30 * 1000)",
+      "text": "%consumer\n\nimport org.apache.spark.sql.avro.functions._\n\nvar avgSamplesDepthByCountrySchema \u003d \"\"\"{\n  \"type\": \"record\",\n  \"name\": \"AvgSamplesByCountry\",\n  \"namespace\": \"com.github.viktornar\",\n  \"fields\": [\n    {\"name\": \"country\",\"type\": [\"string\", \"null\"]},\n    {\"name\": \"avg_samples_depth\",\"type\": [\"double\", \"null\"]}\n  ]\n}\n\"\"\"\n\nval df \u003d spark\n  .readStream\n  .format(\"kafka\")\n  .option(\"kafka.bootstrap.servers\", \"172.25.0.12:9092\")\n  .option(\"subscribe\", \"seb-demo\")\n  .load()\n\nval data \u003d df\n      .select(from_avro(col(\"value\"), avgSamplesDepthByCountrySchema)\n        .alias(\"avgSamplesDepthByCountry\"))\n      .select(\n        col(\"avgSamplesDepthByCountry.country\"), \n        col(\"avgSamplesDepthByCountry.avg_samples_depth\")\n      )\n\n  \nval conOut \u003d data.writeStream\n .outputMode(\"update\")\n .format(\"console\")\n .start()\n\nspark.streams.awaitAnyTermination(60 * 1000)",
       "user": "anonymous",
-      "dateUpdated": "2021-04-27 08:23:47.072",
+      "dateUpdated": "2021-04-27 12:51:56.898",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -1224,7 +1180,96 @@
         "editorMode": "ace/mode/scala",
         "fontSize": 14.0,
         "title": true,
-        "results": {},
+        "results": {
+          "9": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          },
+          "11": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "avgSamplesDepthByCountry",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": []
+            },
+            "helium": {}
+          },
+          "14": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "avgSamplesDepthByCountry": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          },
+          "19": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "avgSamplesDepthByCountry": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
         "enabled": true
       },
       "settings": {
@@ -1236,7 +1281,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "-------------------------------------------\nBatch: 0\n-------------------------------------------\n+------------------------+\n|avgSamplesDepthByCountry|\n+------------------------+\n+------------------------+\n\n-------------------------------------------\nBatch: 5\n-------------------------------------------\n+--------------------+\n|    from_avro(value)|\n+--------------------+\n|{DK, 1.4911835180...|\n|{BE, 0.4879749377...|\n|{CZ, 0.1999999999...|\n+--------------------+\n\n-------------------------------------------\nBatch: 1\n-------------------------------------------\n+------------------------+\n|avgSamplesDepthByCountry|\n+------------------------+\n|    {DK, 1.4911835180...|\n|    {BE, 0.4879749377...|\n|    {CZ, 0.1999999999...|\n+------------------------+\n\n-------------------------------------------\nBatch: 3\n-------------------------------------------\n+--------------------+\n|    from_avro(value)|\n+--------------------+\n|{DK, 1.4911835180...|\n|{BE, 0.4879749377...|\n|{CZ, 0.1999999999...|\n+--------------------+\n\n-------------------------------------------\nBatch: 6\n-------------------------------------------\n+--------------------+\n|    from_avro(value)|\n+--------------------+\n|           {BA, 0.0}|\n|           {CY, 0.0}|\n|{DE, 8.5319322033...|\n|           {AT, 0.0}|\n|{BG, 0.1491967871...|\n|{EE, 0.0464285714...|\n|           {ES, 0.0}|\n|           {FR, 0.0}|\n|           {IE, 0.0}|\n|           {LU, 0.5}|\n|           {HR, 0.0}|\n|         {IS, 0.375}|\n|{LT, 0.1999999999...|\n|{FI, 3.5340062731...|\n|           {NL, 1.0}|\n|{IT, 3.4059654638...|\n|{RS, 0.8045677995...|\n|{RO, 0.6042933976...|\n|{SK, 0.9634153263...|\n|{SE, 0.4973486088...|\n+--------------------+\nonly showing top 20 rows\n\n-------------------------------------------\nBatch: 2\n-------------------------------------------\n-------------------------------------------\nBatch: 4\n-------------------------------------------\n+------------------------+\n|avgSamplesDepthByCountry|\n+------------------------+\n|               {BA, 0.0}|\n|               {CY, 0.0}|\n|    {DE, 8.5319322033...|\n|               {AT, 0.0}|\n|    {BG, 0.1491967871...|\n|    {EE, 0.0464285714...|\n|               {ES, 0.0}|\n|               {FR, 0.0}|\n|               {IE, 0.0}|\n|               {LU, 0.5}|\n|               {HR, 0.0}|\n|             {IS, 0.375}|\n|    {LT, 0.1999999999...|\n|    {FI, 3.5340062731...|\n|               {NL, 1.0}|\n|    {IT, 3.4059654638...|\n|    {RS, 0.8045677995...|\n|    {RO, 0.6042933976...|\n|    {SK, 0.9634153263...|\n|    {SE, 0.4973486088...|\n+------------------------+\nonly showing top 20 rows\n\n+--------------------+\n|    from_avro(value)|\n+--------------------+\n|           {BA, 0.0}|\n|           {CY, 0.0}|\n|{DE, 8.5319322033...|\n|           {AT, 0.0}|\n|{BG, 0.1491967871...|\n|{EE, 0.0464285714...|\n|           {ES, 0.0}|\n|           {FR, 0.0}|\n|           {IE, 0.0}|\n|           {LU, 0.5}|\n|           {HR, 0.0}|\n|         {IS, 0.375}|\n|{LT, 0.1999999999...|\n|{FI, 3.5340062731...|\n|           {NL, 1.0}|\n|{IT, 3.4059654638...|\n|{RS, 0.8045677995...|\n|{RO, 0.6042933976...|\n|{SK, 0.9634153263...|\n|{SE, 0.4973486088...|\n+--------------------+\nonly showing top 20 rows\n\nimport org.apache.spark.sql.avro.functions._\n\u001b[1m\u001b[34mavgSamplesDepthByCountrySchema\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d\n\"{\n  \"type\": \"record\",\n  \"name\": \"AvgSamplesByCountry\",\n  \"namespace\": \"com.github.viktornar\",\n  \"fields\": [\n    {\"name\": \"country\",\"type\": [\"string\", \"null\"]},\n    {\"name\": \"avg_samples_depth\",\"type\": [\"double\", \"null\"]}\n  ]\n}\n\"\n\u001b[1m\u001b[34mdf\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [key: binary, value: binary ... 5 more fields]\n\u001b[1m\u001b[34mdata\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [avgSamplesDepthByCountry: struct\u003ccountry: string, avg_samples_depth: double\u003e]\n\u001b[1m\u001b[34mconOut\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.streaming.StreamingQuery\u001b[0m \u003d org.apache.spark.sql.execution.streaming.StreamingQueryWrapper@170bd9b3\n\u001b[1m\u001b[34mres6\u001b[0m: \u001b[1m\u001b[32mBoolean\u001b[0m \u003d false\n"
+            "data": "-------------------------------------------\nBatch: 0\n-------------------------------------------\n+-------+-----------------+\n|country|avg_samples_depth|\n+-------+-----------------+\n+-------+-----------------+\n\n-------------------------------------------\nBatch: 9\n-------------------------------------------\n-------------------------------------------\nBatch: 11\n-------------------------------------------\n+------------------------+\n|avgSamplesDepthByCountry|\n+------------------------+\n|               {AT, 0.0}|\n|    {BG, 0.1005955441...|\n|    {AL, 0.8702265372...|\n|               {CY, 0.0}|\n|    {BE, 0.4867454015...|\n|    {BA, 0.0023988005...|\n|              {CH, null}|\n|    {CZ, 0.1999999999...|\n+------------------------+\n\n-------------------------------------------\nBatch: 13\n-------------------------------------------\n-------------------------------------------\nBatch: 3\n-------------------------------------------\n+------------------------+\n|avgSamplesDepthByCountry|\n+------------------------+\n|               {AT, 0.0}|\n|    {BG, 0.1005955441...|\n|    {AL, 0.8702265372...|\n|               {CY, 0.0}|\n|    {BE, 0.4867454015...|\n|    {BA, 0.0023988005...|\n|              {CH, null}|\n|    {CZ, 0.1999999999...|\n+------------------------+\n\n+------------------------+\n|avgSamplesDepthByCountry|\n+------------------------+\n|               {AT, 0.0}|\n|    {BG, 0.1005955441...|\n|    {AL, 0.8702265372...|\n|               {CY, 0.0}|\n|    {BE, 0.486745-4015...|------\n|    {BA, 0.0023988005...|\n|              {CH, null}|\n|    {CZ, 0.1999999999...|\n+------------------------+\n\n------------------------------------\nBatch: 1\n-------------------------------------------\n+-------+-------------------+\n|country|  avg_samples_depth|+-------\n+-------+-------------------+\n|     AT|                0.0|\n|     BG| 0.1005955441302485|+\n|     AL| 0.8702265372168281|\n|     CY|                0.0|\n|     BE|0.48674540158799967|\n|     BA|0.00239880059970015|\n|     CH|               null|\n|     CZ|0.19999999999992915|\n+-------+-------------------+\n-------------------+\n\n|country|  avg_samples_depth|\n+-------+-------------------+\n|     AT|                0.0|\n|     BG| 0.1005955441302485|\n|     AL| 0.8702265372168281|\n|     CY|                0.0|\n|     BE|0.48674540158799967|\n|     BA|0.00239880059970015|\n|     CH|               null|\n|     CZ|0.19999999999992915|\n+-------+-------------------+\n\n-------------------------------------------\nBatch: 10\n-------------------------------------------\n+------------------------+\n|avgSamplesDepthByCountry|\n+------------------------+\n|    {EE, 0.0587064676...|\n|               {ES, 0.0}|\n|               {FR, 0.0}|\n|    {DK, 1.4911835180...|\n|    {FI, 7.9338681781...|\n|              {EL, null}|\n|               {IE, 0.0}|\n|    {IS, 0.3166666666...|\n|               {HR, 0.0}|\n|    {DE, 8.0252502360...|\n|    {IT, 1.5518976414...|\n|    {MT, 0.1999999999...|\n|              {ME, null}|\n|    {LT, 0.1999999999...|\n|              {PL, null}|\n|               {NL, 1.0}|\n|               {LU, 0.5}|\n|              {LV, null}|\n|               {MK, 0.5}|\n|              {PT, null}|\n+------------------------+\nonly showing top 20 rows\n\n-------------------------------------------\nBatch: 12\n-------------------------------------------\n+------------------------+\n|avgSamplesDepthByCountry|\n+------------------------+\n|    {EE, 0.0587064676...|\n|               {ES, 0.0}|\n|               {FR, 0.0}|\n|    {DK, 1.4911835180...|\n|    {FI, 7.9338681781...|\n|              {EL, null}|\n|               {IE, 0.0}|\n|    {IS, 0.3166666666...|\n|               {HR, 0.0}|\n|    {DE, 8.0252502360...|\n|    {IT, 1.5518976414...|\n|    {MT, 0.1999999999...|\n|              {ME, null}|\n|    {LT, 0.1999999999...|\n|              {PL, null}|\n|               {NL, 1.0}|\n|               {LU, 0.5}|\n|              {LV, null}|\n|               {MK, 0.5}|\n|              {PT, null}|\n+------------------------+\nonly showing top 20 rows\n\n-------------------------------------------\nBatch: 2\n-------------------------------------------\n-------------------------------------------\nBatch: 4\n-------------------------------------------\n+-------+-------------------+\n|country|  avg_samples_depth|\n+-------+-------------------+\n|     EE|0.05870646766169155|\n|     ES|                0.0|\n|     FR|                0.0|\n|     DK| 1.4911835180044777|\n|     FI|  7.933868178184722|\n|     EL|               null|\n|     IE|                0.0|\n|     IS|0.31666666666666665|\n|     HR|                0.0|\n|     DE|  8.025250236071765|\n|     IT| 1.5518976414958647|\n|     MT|0.19999999999999968|\n-|----  -  -- ME--|-- ---   --  - --   - -   --- n-u---ll--|----\n|     LT| 0.1999999999999993|\n|     PL|   -   -  --  -   -- - null|\n|     NL|                1.0|\n|     LU|                0.5|\n|     LV|\n               null|\n|     MK|     B a tch :   1 4     0.5|\n|     PT|     \n-------------------------------------------\n          null|\n+-------+-------------------+\nonly showing top 20 rows\n\n+-------+-------------------+\n|country|  avg_samples_depth|\n+-------+-------------------+\n|     EE|0.05870646766169155|\n|     ES|                0.0|\n|     FR|                0.0|\n|     DK| 1.4911835180044777|\n|     FI|  7.933868178184722|\n|     EL|               null|\n|     IE|                0.0|\n|     IS|0.31666666666666665|\n|     HR|                0.0|\n|     DE|  8.025250236071765|\n|     IT| 1.5518976414958647|\n|     MT|0.19999999999999968|\n|     ME|               null|\n|     LT| 0.1999999999999993|\n|     PL|               null|\n|     NL|                1.0|\n|     LU|                0.5|\n|     LV|               null|\n|     MK|                0.5|\n|     PT|               null|\n+-------+-------------------+\nonly showing top 20 rows\n\n+------------------------+\n|avgSamplesDepthByCountry|\n+------------------------+\n|    {EE, 0.0587064676...|\n|               {ES, 0.0}|\n|               {FR, 0.0}|\n|    {DK, 1.4911835180...|\n|    {FI, 7.9338681781...|\n|              {EL, null}|\n|               {IE, 0.0}|\n|    {IS, 0.3166666666...|\n|               {HR, 0.0}|\n|    {DE, 8.0252502360...|\n|    {IT, 1.5518976414...|\n|    {MT, 0.1999999999...|\n|              {ME, null}|\n|    {LT, 0.1999999999...|\n|              {PL, null}|\n|               {NL, 1.0}|\n|               {LU, 0.5}|\n|              {LV, null}|\n|               {MK, 0.5}|\n|              {PT, null}|\n+------------------------+\nonly showing top 20 rows\n\nimport org.apache.spark.sql.avro.functions._\n\u001b[1m\u001b[34mavgSamplesDepthByCountrySchema\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d\n\"{\n  \"type\": \"record\",\n  \"name\": \"AvgSamplesByCountry\",\n  \"namespace\": \"com.github.viktornar\",\n  \"fields\": [\n    {\"name\": \"country\",\"type\": [\"string\", \"null\"]},\n    {\"name\": \"avg_samples_depth\",\"type\": [\"double\", \"null\"]}\n  ]\n}\n\"\n\u001b[1m\u001b[34mdf\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [key: binary, value: binary ... 5 more fields]\n\u001b[1m\u001b[34mdata\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [country: string, avg_samples_depth: double]\n\u001b[1m\u001b[34mconOut\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.streaming.StreamingQuery\u001b[0m \u003d org.apache.spark.sql.execution.streaming.StreamingQueryWrapper@571279cb\n\u001b[1m\u001b[34mres7\u001b[0m: \u001b[1m\u001b[32mBoolean\u001b[0m \u003d false\n"
           }
         ]
       },
@@ -1246,8 +1291,8 @@
       "jobName": "paragraph_1618259940255_557078520",
       "id": "paragraph_1618259940255_557078520",
       "dateCreated": "2021-04-12 20:39:00.255",
-      "dateStarted": "2021-04-27 08:23:47.086",
-      "dateFinished": "2021-04-27 08:24:17.537",
+      "dateStarted": "2021-04-27 12:51:56.911",
+      "dateFinished": "2021-04-27 12:52:57.366",
       "status": "FINISHED"
     },
     {
