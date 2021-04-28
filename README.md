@@ -8,16 +8,20 @@ The purpose of this project is to try spark with kafkawith zeppelin by implement
 * Convert cvs file to avro file in /opt/data/target
 * Read avro file that was stored in /opt/data/target
 * Create structured streaming by following these rules:
-    1. Use target file as input
-    2. Proceed with data aggregations, data cleansing, or similar to analyse the data by country. 
-   3. Publish the analysis results to the Kafka topic seb-demo
+  1. Use target file as input
+  2. Proceed with data aggregations, data cleansing, or similar to analyse the data by country. 
+  3. Publish the analysis results to the Kafka topic seb-demo
 * Ensure that streaming pipeline is working. This will be required during the exercise review.
 
 ## Requirements
 
 You need to have linux with:
 * docker version 20.10.5
-* version 1.24.1
+* docker-compose version 1.24.1
+* java version 11
+* sbt version 1.4.9
+* scala version 2.12
+
 Set up is not working with MacOS and probably will not work with Windows. In current set up I'm using bridge network set up with imap and on Mac it is not working.
   
 ## Docker
@@ -34,7 +38,7 @@ volumes:
   - ./data/conf:/opt/zeppelin/conf
   - ./data/initial:/opt/data/initial
   - ./data/target:/opt/data/target
-  - ./target/scala-2.12:/opt/data/work
+  - ./data/work:/opt/data/work
   - spark:/spark
 ```
 
@@ -92,6 +96,20 @@ Result of applications:
 
 ![Spark app results](images/spark_consumer_producer.png)
 
-It is also possible to read kafka stream and display in pie chart with Zeppelin notebook **Analyses/Water prie chart**
+It is also possible to read kafka stream and display result in pie chart with Zeppelin notebook **Analyses/Water prie chart**
 
 ![Zeppelin pie chart](images/zeppelin_prie_chart.png)
+
+Since I'm not familiar with any of BI tools I just decided to use as BI tools Zeppelin notebook with PI chart that reads data from kafka topic **seb-demo** :D
+
+## Testing strategy
+A very nice testing strategy is described in video: https://databricks.com/session/mastering-spark-unit-testing. Tried to follow guidance in this video and wrote some simple tests.
+
+The main idea is to create a spark session with context in tests and run spark locally. For testing, it is also important to have a small amount of data (subset) that can be verified by hand :D. So I took first 19 records from input data and used it in testing.
+
+How to run tests:
+```shell
+./op.sh compose=up
+sbt test
+```
+

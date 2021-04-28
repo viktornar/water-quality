@@ -1,9 +1,8 @@
 package com.github.viktornar.wq
 
+import org.apache.spark.sql._
 import org.apache.spark.sql.avro.functions.to_avro
 import org.apache.spark.sql.functions.{avg, col, column, struct}
-import org.apache.spark.sql._
-
 import java.io.{File, PrintWriter}
 
 object WaterQualityProducer {
@@ -25,10 +24,7 @@ object WaterQualityProducer {
     val kafkaServer = args(2)
     val topic = args(3)
 
-    val waterCSVDataFrame = spark
-      .read
-      .options(Map("inferSchema" -> "true", "delimiter" -> ",", "header" -> "true"))
-      .csv(inputDataset)
+    val waterCSVDataFrame: DataFrame = readCSV(spark, inputDataset)
 
     writeCSVToAvro(outputDataset, waterCSVDataFrame)
 
@@ -38,13 +34,21 @@ object WaterQualityProducer {
       .load(outputDataset)
 
     val avgSamples = averageSamplesByCountry(
-      normalizeDataFrame(waterCSVDataFrame)
+      normalizeDataFrame(waterAvroDataFrame)
     )
 
     saveToKafkaTopic(kafkaServer, topic, avgSamples)
   }
 
-  private def averageSamplesByCountry(normalizedWaterDataFrame: DataFrame, startYear: Int = 2011): Dataset[Row] = {
+  def readCSV(spark: SparkSession, inputDataset: String) = {
+    val waterCSVDataFrame = spark
+      .read
+      .options(Map("inferSchema" -> "true", "delimiter" -> ",", "header" -> "true"))
+      .csv(inputDataset)
+    waterCSVDataFrame
+  }
+
+  def averageSamplesByCountry(normalizedWaterDataFrame: DataFrame, startYear: Int = 2011): Dataset[Row] = {
     val avgSamplesByCountry = normalizedWaterDataFrame
       .filter(col("year") > startYear && col("samples").isNotNull)
       .groupBy("country")
@@ -53,7 +57,7 @@ object WaterQualityProducer {
     avgSamplesByCountry
   }
 
-  private def normalizeDataFrame(waterAvroDataFrame: DataFrame) = {
+  def normalizeDataFrame(waterAvroDataFrame: DataFrame) = {
     val normalizedWaterDataFrame = waterAvroDataFrame
       .selectExpr(
         "substr(monitoringSiteIdentifier, 0, 2) AS country",
@@ -71,7 +75,7 @@ object WaterQualityProducer {
     normalizedWaterDataFrame
   }
 
-  private def writeCSVToAvro(outputDataset: String, dataFrame: DataFrame): Unit = {
+  def writeCSVToAvro(outputDataset: String, dataFrame: DataFrame): Unit = {
     dataFrame
       .write
       .format("avro")
@@ -86,7 +90,7 @@ object WaterQualityProducer {
     writer.close()
   }
 
-  private def saveToKafkaTopic(kafkaServer: String, topic: String, data: Dataset[Row]): Unit = {
+  def saveToKafkaTopic(kafkaServer: String, topic: String, data: Dataset[Row]): Unit = {
     val df = data.toDF()
     df.select(to_avro(struct(df.columns.map(column): _*)).alias("value"))
       .write
