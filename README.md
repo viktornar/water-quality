@@ -22,7 +22,7 @@ You need to have linux with:
 * sbt version 1.4.9
 * scala version 2.12
 
-Set up is not working with MacOS and probably will not work with Windows. In current set up I'm using bridge network set up with imap and on Mac it is not working.
+Set up is not working with MacOS and probably will not work with Windows. In current set up I'm using bridge network set up with imap and in Mac it is not working.
   
 ## Docker
 
@@ -113,3 +113,9 @@ How to run tests:
 sbt test
 ```
 
+## Improvement
+
+* Would be nice to make integration with any BI tools
+* Some approaches probably are wrong because of missing knowledge how to work with spark and kafka
+* Would be nice to learn how to work with kafka schema, but sake of simplicity in this project I didn't use it
+* Probably more space for improvement
