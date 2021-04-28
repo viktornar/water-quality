@@ -1,0 +1,347 @@
+{
+  "paragraphs": [
+    {
+      "title": "Read data from kafka topic",
+      "text": "%consumer\n\nimport org.apache.spark.sql.avro.functions._\n\nvar avgSamplesDepthByCountrySchema \u003d \"\"\"{\n  \"type\": \"record\",\n  \"name\": \"AvgSamplesByCountry\",\n  \"namespace\": \"com.github.viktornar\",\n  \"fields\": [\n    {\"name\": \"country\",\"type\": [\"string\", \"null\"]},\n    {\"name\": \"avg_samples_depth\",\"type\": [\"double\", \"null\"]}\n  ]\n}\n\"\"\"\n\nval df \u003d spark\n  .read\n  .format(\"kafka\")\n  .option(\"kafka.bootstrap.servers\", \"172.25.0.12:9092\")\n  .option(\"subscribe\", \"seb-demo\")\n  .load()\n\nval data \u003d df\n      .select(from_avro(col(\"value\"), avgSamplesDepthByCountrySchema)\n        .alias(\"avgSamplesDepthByCountry\"))\n      .select(\n        col(\"avgSamplesDepthByCountry.country\"), \n        col(\"avgSamplesDepthByCountry.avg_samples_depth\")\n      )",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-27 13:28:36.508",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 16.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "country": "string",
+                      "avg_samples_depth": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          },
+          "1": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "avgSamplesDepthByCountry": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          },
+          "3": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "avgSamplesDepthByCountry": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          },
+          "10": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "avgSamplesDepthByCountry": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          },
+          "18": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "avgSamplesDepthByCountry": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          },
+          "19": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "avgSamplesDepthByCountry": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.avro.functions._\n\u001b[1m\u001b[34mavgSamplesDepthByCountrySchema\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d\n\"{\n  \"type\": \"record\",\n  \"name\": \"AvgSamplesByCountry\",\n  \"namespace\": \"com.github.viktornar\",\n  \"fields\": [\n    {\"name\": \"country\",\"type\": [\"string\", \"null\"]},\n    {\"name\": \"avg_samples_depth\",\"type\": [\"double\", \"null\"]}\n  ]\n}\n\"\n\u001b[1m\u001b[34mdf\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [key: binary, value: binary ... 5 more fields]\n\u001b[1m\u001b[34mdata\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [country: string, avg_samples_depth: double]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619522938710_1093592609",
+      "id": "paragraph_1619522938710_1093592609",
+      "dateCreated": "2021-04-27 11:28:58.710",
+      "dateStarted": "2021-04-27 13:26:54.033",
+      "dateFinished": "2021-04-27 13:26:54.426",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Show data from kafka",
+      "text": "%consumer\nz.show(data)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-27 13:28:59.287",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "country": "string",
+                      "avg_samples_depth": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "country\tavg_samples_depth\nBG\t0.1005955441302485\nAL\t0.8702265372168281\nCH\tnull\nAT\t0.0\nBE\t0.48674540158799967\nCZ\t0.19999999999992915\nCY\t0.0\nBA\t0.00239880059970015\nDE\t8.025250236071765\nFI\t7.933868178184722\nFR\t0.0\nEE\t0.05870646766169155\nHR\t0.0\nES\t0.0\nEL\tnull\nDK\t1.4911835180044777\nIE\t0.0\nIS\t0.31666666666666665\nLU\t0.5\nLT\t0.1999999999999993\nMK\t0.5\nIT\t1.5518976414958647\nLV\tnull\nNL\t1.0\nMT\t0.19999999999999968\nNO\t0.0\nME\tnull\nRS\t0.9362142700383841\nPL\tnull\nSE\t0.4871527163333926\nPT\tnull\nRO\t0.44906540349275254\nSI\t0.0\nTR\tnull\nSK\t1.0046116504854354\nUK\t0.0\nXK\t0.0\nBE\t0.48674540158799967\nCZ\t0.19999999999992915\nAT\t0.0\nBA\t0.00239880059970015\nCY\t0.0\nCH\tnull\nAL\t0.8702265372168281\nBG\t0.1005955441302485\nDE\t8.025250236071765\nHR\t0.0\nFI\t7.933868178184722\nFR\t0.0\nEL\tnull\nDK\t1.4911835180044777\nEE\t0.05870646766169155\nES\t0.0\nIS\t0.31666666666666665\nIT\t1.5518976414958647\nIE\t0.0\nLT\t0.1999999999999993\nLU\t0.5\nME\tnull\nMK\t0.5\nNL\t1.0\nNO\t0.0\nLV\tnull\nMT\t0.19999999999999968\nPT\tnull\nPL\tnull\nSE\t0.4871527163333926\nSI\t0.0\nRS\t0.9362142700383841\nSK\t1.0046116504854354\nRO\t0.44906540349275254\nTR\tnull\nUK\t0.0\nXK\t0.0\nCY\t0.0\nAT\t0.0\nCH\tnull\nBE\t0.48674540158799967\nBG\t0.1005955441302485\nCZ\t0.19999999999992915\nAL\t0.8702265372168281\nBA\t0.00239880059970015\nEL\tnull\nDK\t1.4911835180044777\nFI\t7.933868178184722\nDE\t8.025250236071765\nFR\t0.0\nEE\t0.05870646766169155\nES\t0.0\nHR\t0.0\nIE\t0.0\nIT\t1.5518976414958647\nIS\t0.31666666666666665\nLV\tnull\nLU\t0.5\nNL\t1.0\nLT\t0.1999999999999993\nRO\t0.44906540349275254\nPT\tnull\nPL\tnull\nMK\t0.5\nNO\t0.0\nSE\t0.4871527163333926\nMT\t0.19999999999999968\nRS\t0.9362142700383841\nME\tnull\nSK\t1.0046116504854354\nSI\t0.0\nUK\t0.0\nXK\t0.0\nTR\tnull\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://zeppelin:4041/jobs/job?id\u003d3"
+            }
+          ],
+          "interpreterSettingId": "consumer"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619529925481_198760387",
+      "id": "paragraph_1619529925481_198760387",
+      "dateCreated": "2021-04-27 13:25:25.481",
+      "dateStarted": "2021-04-27 13:26:54.456",
+      "dateFinished": "2021-04-27 13:26:55.601",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%consumer\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-27 13:26:55.647",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619529787161_1013584744",
+      "id": "paragraph_1619529787161_1013584744",
+      "dateCreated": "2021-04-27 13:23:07.161",
+      "dateStarted": "2021-04-27 13:26:55.650",
+      "dateFinished": "2021-04-27 13:26:55.874",
+      "status": "FINISHED"
+    }
+  ],
+  "name": "Water pie chart",
+  "id": "2G3N275VD",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {
+    "isRunning": false
+  }
+}
