@@ -1,6 +1,7 @@
 package com.github.viktornar.wq
 
 import com.github.mrpowers.spark.fast.tests.DataFrameComparer
+import org.apache.spark.sql.functions.col
 import org.scalatest.funspec.AnyFunSpec
 
 import java.io.{File, IOException}
@@ -26,6 +27,32 @@ class WaterQualityProducerSpec extends AnyFunSpec
     assert(Files.exists(path))
 
     delete(path.toFile)
+  }
+
+  it("should normalize data frame") {
+    val dataFrame = readCSV(spark, "data/initial/Waterbase_Test.csv")
+    writeCSVToAvro("data/target/Waterbase_Test.avro", dataFrame)
+    val path = Paths.get("data/target/Waterbase_Test.avro")
+
+    val normalizedDataFrame = normalizeDataFrame(dataFrame)
+
+    assert(normalizedDataFrame.columns.contains("country"))
+    assert(normalizedDataFrame.columns.contains("year"))
+    assert(normalizedDataFrame.columns.contains("samples"))
+    assert(normalizedDataFrame.columns.contains("depth"))
+  }
+
+  it("should return average samples by country") {
+    val dataFrame = readCSV(spark, "data/initial/Waterbase_Test.csv")
+    writeCSVToAvro("data/target/Waterbase_Test.avro", dataFrame)
+    val path = Paths.get("data/target/Waterbase_Test.avro")
+
+    val normalizedDataFrame = normalizeDataFrame(dataFrame)
+    val avgDataFrame = averageSamplesByCountry(normalizedDataFrame)
+
+    val row = avgDataFrame.select(col("country"), col("avg_samples_depth")).first()
+    assert(row.get(0) == "UK")
+    assert(row.get(1) == 1.0)
   }
 
   def delete(file: File): Array[(String, Boolean)] = {

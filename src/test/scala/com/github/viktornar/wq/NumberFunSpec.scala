@@ -52,12 +52,12 @@ class NumberFunSpec
       assert(NumberFun.isEven(3) === false)
     }
   }
-}
 
-object NumberFun {
-  def isEven(n: Integer): Boolean = {
-    n % 2 == 0
+  object NumberFun {
+    def isEven(n: Integer): Boolean = {
+      n % 2 == 0
+    }
+
+    val isEvenUDF = udf[Boolean, Integer](isEven)
   }
-
-  val isEvenUDF = udf[Boolean, Integer](isEven)
 }

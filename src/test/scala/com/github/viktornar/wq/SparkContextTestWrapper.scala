@@ -13,7 +13,7 @@ trait SparkContextTestWrapper {
       sparkConfig.set("spark.shuffle.spill.compress", "false")
       new SparkContext("local[2]", "TestApp", sparkConfig)
     }
-
+    sc.setLogLevel("ERROR")
     SparkSession.builder.config(sc.getConf).getOrCreate()
   }
 }

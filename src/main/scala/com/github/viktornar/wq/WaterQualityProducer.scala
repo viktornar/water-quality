@@ -40,7 +40,7 @@ object WaterQualityProducer {
     saveToKafkaTopic(kafkaServer, topic, avgSamples)
   }
 
-  def readCSV(spark: SparkSession, inputDataset: String) = {
+  def readCSV(spark: SparkSession, inputDataset: String): DataFrame = {
     val waterCSVDataFrame = spark
       .read
       .options(Map("inferSchema" -> "true", "delimiter" -> ",", "header" -> "true"))
@@ -54,10 +54,11 @@ object WaterQualityProducer {
       .groupBy("country")
       .agg(avg("depth").as("avg_samples_depth"))
       .sort("country")
+      .filter(col("avg_samples_depth").isNotNull)
     avgSamplesByCountry
   }
 
-  def normalizeDataFrame(waterAvroDataFrame: DataFrame) = {
+  def normalizeDataFrame(waterAvroDataFrame: DataFrame): DataFrame = {
     val normalizedWaterDataFrame = waterAvroDataFrame
       .selectExpr(
         "substr(monitoringSiteIdentifier, 0, 2) AS country",
