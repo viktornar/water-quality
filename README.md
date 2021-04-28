@@ -79,12 +79,13 @@ For quick prototyping I have used Zeppelin with Analyses/POC notebook where all 
 
 ## Spark application
 
-Basic steps are also implemented with Spark applications in **src** folder as **WaterQualityProducer.scala** **WaterQualityConsumer.scala**
+Basic aggregation and so on logic also implemented with Spark applications in **src** folder as **WaterQualityProducer.scala** **WaterQualityConsumer.scala**
 
 **WaterQualityProducer.scala** will read csv, convert it to avro, read avro, do some normalization, aggregation and publish to seb-demo topic.
 
 This application can be published by using:
 ```shell
+# Docker must be running with containers
 ./op.sh spark=submit-producer
 ```
 
