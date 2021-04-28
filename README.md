@@ -75,7 +75,7 @@ Some examples:
 
 ## POC
 
-For quick prototyping I have used Zeppelin with Analyses/POC notebook where all basic steps are implemented
+For quick prototyping I have used Zeppelin with **Analyses/POC** notebook where all basic steps are implemented
 
 ![Zeppelin POC](images/zeppelin_poc.png)
 
@@ -111,7 +111,7 @@ It is also possible to read kafka stream and display result in pie chart with Ze
 
 ![Zeppelin pie chart](images/zeppelin_prie_chart.png)
 
-Since I'm not familiar with any of BI tools I just decided to use as BI tools Zeppelin notebook with PI chart that reads data from kafka topic **seb-demo** :D
+Since I'm not familiar with any of BI tools I just decided to use as BI tool a Zeppelin notebook with PI chart that reads data from kafka topic **seb-demo** :D
 
 ## Testing strategy
 A very nice testing strategy is described in video: https://databricks.com/session/mastering-spark-unit-testing. Tried to follow guidance in this video and wrote some simple tests.
@@ -128,5 +128,5 @@ sbt test
 
 * Would be nice to make integration with any BI tools
 * Some approaches probably are wrong because of missing knowledge how to work with spark and kafka
-* Would be nice to learn how to work with kafka schema, but sake of simplicity in this project I didn't use it
-* Probably more space for improvement
+* Would be nice to learn how to work with kafka schema, but for the sake of simplicity in this project I didn't use it
+* Probably, more space for improvement
