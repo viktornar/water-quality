@@ -67,8 +67,8 @@ main() {
             --packages "org.apache.spark:spark-avro_2.12:3.1.1,org.apache.spark:spark-streaming-kafka-0-10_2.12:3.1.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.1" \
             --class com.github.viktornar.wq.WaterQualityProducer \
             /opt/data/work/water-quality_2.12-0.1.jar \
-            /opt/data/initial/Waterbase_v2018_1_T_WISE4_AggregatedData.csv \
-            /opt/data/target/Waterbase_v2018_1_T_WISE4_AggregatedData.avro \
+            /opt/data/initial/Waterbase_Small.csv \
+            /opt/data/target/Waterbase_Small.avro \
             172.25.0.12:9092 \
             seb-demo
         exit 0

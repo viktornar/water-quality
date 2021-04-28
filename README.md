@@ -23,6 +23,8 @@ You need to have linux with:
 * sbt version 1.4.9
 * scala version 2.12
 
+You also need to download **Waterbase_v2018_1_T_WISE4_AggregatedData.csv** from **https://data.europa.eu/euodp/en/data/dataset/DAT-163-en** or you can use smaller version **Waterbase_Small.csv** that already inluded in git.
+
 Set up is not working with MacOS and probably will not work with Windows. In current set up I'm using bridge network set up with imap and in Mac it is not working.
   
 ## Docker
