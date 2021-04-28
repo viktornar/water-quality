@@ -1,17 +1,18 @@
 # Water quality analysis
 ## What this project about
 
-The purpose of this project is to try spark with kafkawith zeppelin by implement POC and application for such steps:
-* Set up kafka, spark and zeppelin with docker
-* Create a new Kafka topic called: seb-demo
-* Read Waterbase_v2018_1_T_WISE4_AggregatedData.csv file in /opt/data/initial with Spark
-* Convert cvs file to avro file in /opt/data/target
-* Read avro file that was stored in /opt/data/target
+The purpose of this project is to try spark with kafka and zeppelin by implementing POC and application for such steps:
+* Set up kafka, spark and zeppelin with docker.
+* Create a new Kafka topic called: seb-demo.
+* Read Waterbase_v2018_1_T_WISE4_AggregatedData.csv file in /opt/data/initial with Spark.
+* Convert cvs file to avro file in /opt/data/target.
+* Read avro file that was stored in /opt/data/target.
 * Create structured streaming by following these rules:
   1. Use target file as input
   2. Proceed with data aggregations, data cleansing, or similar to analyse the data by country. 
   3. Publish the analysis results to the Kafka topic seb-demo
-* Ensure that streaming pipeline is working. This will be required during the exercise review.
+* Ensure that streaming pipeline is working.
+* Write some unit tests.
 
 ## Requirements
 
